@@ -6,15 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eagle Tech Solution - Cloud, AI & Cybersecurity Experts</title>
-  <meta name="description" content="Eagle Tech Solution provides cutting-edge software development, AI solutions, cybersecurity services, and tech training in Ethiopia.">
+  <meta name="description"
+    content="Eagle Tech Solution provides cutting-edge software development, AI solutions, cybersecurity services, and tech training in Ethiopia.">
   <link rel="icon" href="images/eagle-tech-solution.ico" type="image/x-icon">
-  
+
   <!-- Preloads -->
-  <link rel="preload" href="./fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  
+  <link rel="preload" href="./fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -31,6 +33,8 @@
           animation: {
             'eagle-fly': 'eagleFly 15s linear infinite',
             'float': 'float 6s ease-in-out infinite',
+            'wave': 'wave 12s linear infinite',
+            'wave-single': 'wave 20s linear infinite',
           },
           keyframes: {
             eagleFly: {
@@ -41,52 +45,63 @@
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-20px)' },
-            }
+            },
+            wave: {
+              '0%': { transform: 'translateX(0) rotate(180deg)' },
+              '100%': { transform: 'translateX(-50%) rotate(180deg)' },
+            },
+
           }
         }
       }
     }
   </script>
-  
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="sisay-css.css">
-  
+
   <!-- Scripts -->
   <script type="module" src="main.js" defer></script>
   <script src="javascript.js" defer></script>
-  
+
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <style>
     :root {
-      --primary: #042354;         /* eagle-dark blue */
-      --secondary: #3e64a4;       /* medium blue */
-      --accent: #e2b007;          /* eagle-beak gold */
+      --primary: #042354;
+      /* eagle-dark blue */
+      --secondary: #3e64a4;
+      /* medium blue */
+      --accent: #e2b007;
+      /* eagle-beak gold */
       --dark: #1F2937;
       --light: #F3F4F6;
     }
-    
+
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
-    
+
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
+
     ::-webkit-scrollbar-track {
       background: #f1f1f1;
     }
+
     ::-webkit-scrollbar-thumb {
       background: var(--primary);
       border-radius: 4px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: var(--secondary);
     }
-    
+
     /* Gradient text */
     .gradient-text {
       background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -94,14 +109,41 @@
       background-clip: text;
       color: transparent;
     }
-    
+
     /* Section divider */
     .section-divider {
       width: 100%;
       height: 80px;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23042354' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center/cover;
     }
-    
+
+    /* Ocean Wave Footer Divider */
+    .ocean-wave {
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wave {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23042354' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      animation: wave 12s linear infinite;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .wave-reverse {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%233e64a4' fill-opacity='0.5' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      animation: waveReverse 10s linear infinite;
+      transform: translate3d(0, 0, 0);
+      opacity: 0.7;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .nav-menu {
@@ -109,21 +151,24 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
+        width: 100%;
+        /* Changed from 80% to 100% */
         height: 100vh;
-        background: white;
+        background: var(--primary);
         transition: 0.5s;
         z-index: 1000;
         padding-top: 80px;
       }
+
       .nav-menu.active {
         right: 0;
       }
+
       .hamburger {
         display: block;
       }
     }
-    
+
     /* Interactive button effects */
     .btn-primary {
       background: var(--primary);
@@ -131,41 +176,47 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(4, 35, 84, 0.1);
     }
+
     .btn-primary:hover {
       background: #031a3f;
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(4, 35, 84, 0.15);
     }
+
     .btn-primary:active {
       transform: translateY(0);
     }
-    
+
     .btn-accent {
       background: var(--accent);
       color: var(--primary);
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(226, 176, 7, 0.1);
     }
+
     .btn-accent:hover {
       background: #d1a206;
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(226, 176, 7, 0.15);
     }
-    
+
     /* Card hover effects */
     .service-card {
       transition: all 0.3s ease;
       box-shadow: 0 4px 6px rgba(4, 35, 84, 0.05);
     }
+
     .service-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(4, 35, 84, 0.1);
     }
-    
+
     /* Navigation underline animation */
     .nav-link {
       position: relative;
+      color: white;
     }
+
     .nav-link::after {
       content: '';
       position: absolute;
@@ -176,6 +227,7 @@
       background-color: var(--accent);
       transition: width 0.3s ease;
     }
+
     .nav-link:hover::after {
       width: 100%;
     }
@@ -183,40 +235,41 @@
 </head>
 
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
-  <!-- White Navigation Bar -->
-  <header class="header fixed w-full bg-white shadow-sm z-50 transition-all duration-300" style="background-color: var(--primary); color: #cbd5e1;">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center" >
+  <!-- Dark Blue Navigation Bar -->
+  <header class="header fixed w-full z-50 transition-all duration-300" style="background-color: var(--primary);">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
       <div class="logo">
         <a href="#home" class="flex items-center">
           <img src="images/Logo White Color(3)-cropped.svg" alt="Eagle Tech Solution Logo" class="h-12">
-          <span class="ml-2 text-xl font-bold hidden md:block" style="color: text-white">Eagle Tech Solution</span>
+          <span class="ml-2 text-xl font-bold hidden md:block text-white">Eagle Tech Solution</span>
         </a>
       </div>
-      
+
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button id="mobileMenuBtn" class="text-gray-700 focus:outline-none">
+        <button id="mobileMenuBtn" class="text-white focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
-      
+
       <!-- Desktop Navigation -->
-      <nav class="hidden md:block" >
+      <nav class="hidden md:block">
         <ul class="flex space-x-8">
-          <li><a href="#home" class="nav-link text-gray-0 hover:text-white transition-colors">Home</a></li>
-          <li><a href="#about" class="nav-link text-gray-0 hover:text-white transition-colors">About</a></li>
-          <li><a href="#services" class="nav-link text-gray-0 hover:text-white transition-colors">Services</a></li>
-          <li><a href="#education" class="nav-link text-gray-0 hover:text-white transition-colors">Education</a></li>
-          <li><a href="#teams" class="nav-link text-gray-0 hover:text-white transition-colors">Teams</a></li>
-          <li><a href="#announcements" class="nav-link text-gray-0 hover:text-white transition-colors">News</a></li>
-          <li><a href="#contacts" class="nav-link text-gray-0 hover:text-white transition-colors">Contacts</a></li>
+          <li><a href="#home" class="nav-link hover:text-accent transition-colors">Home</a></li>
+          <li><a href="#about" class="nav-link hover:text-accent transition-colors">About</a></li>
+          <li><a href="#services" class="nav-link hover:text-accent transition-colors">Services</a></li>
+          <li><a href="#education" class="nav-link hover:text-accent transition-colors">Education</a></li>
+          <li><a href="#teams" class="nav-link hover:text-accent transition-colors">Teams</a></li>
+          <li><a href="#announcements" class="nav-link hover:text-accent transition-colors">News</a></li>
+          <li><a href="#contacts" class="nav-link hover:text-accent transition-colors">Contacts</a></li>
           <li class="relative group ml-4">
-            <button class="flex items-center text-gray-800 hover:text-primary transition-colors">
+            <button class="flex items-center text-white hover:text-accent transition-colors">
               <span class="mr-1">🌐</span> EN
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
@@ -228,27 +281,29 @@
         </ul>
       </nav>
     </div>
-    
-    <!-- Mobile Navigation -->
-    <nav id="mobileNav" class="md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+
+    <!-- Mobile Navigation - Now full width with no gap -->
+    <nav id="mobileNav"
+      class="md:hidden fixed top-0 right-0 h-full w-full shadow-xl transform translate-x-full transition-transform duration-300 z-50"
+      style="background-color: var(--primary);">
       <div class="flex justify-end p-4">
-        <button id="closeMobileMenu" class="text-gray-700 focus:outline-none">
+        <button id="closeMobileMenu" class="text-white focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
       <ul class="p-4 space-y-4">
-        <li><a href="#home" class="block py-2 text-gray-800 hover:text-primary transition-colors">Home</a></li>
-        <li><a href="#about" class="block py-2 text-gray-800 hover:text-primary transition-colors">About</a></li>
-        <li><a href="#services" class="block py-2 text-gray-800 hover:text-primary transition-colors">Services</a></li>
-        <li><a href="#education" class="block py-2 text-gray-800 hover:text-primary transition-colors">Education</a></li>
-        <li><a href="#teams" class="block py-2 text-gray-800 hover:text-primary transition-colors">Teams</a></li>
-        <li><a href="#announcements" class="block py-2 text-gray-800 hover:text-primary transition-colors">News</a></li>
-        <li><a href="#contacts" class="block py-2 text-gray-800 hover:text-primary transition-colors">Contacts</a></li>
-        <li class="pt-4 border-t border-gray-200">
+        <li><a href="#home" class="block py-2 text-white hover:text-accent transition-colors">Home</a></li>
+        <li><a href="#about" class="block py-2 text-white hover:text-accent transition-colors">About</a></li>
+        <li><a href="#services" class="block py-2 text-white hover:text-accent transition-colors">Services</a></li>
+        <li><a href="#education" class="block py-2 text-white hover:text-accent transition-colors">Education</a></li>
+        <li><a href="#teams" class="block py-2 text-white hover:text-accent transition-colors">Teams</a></li>
+        <li><a href="#announcements" class="block py-2 text-white hover:text-accent transition-colors">News</a></li>
+        <li><a href="#contacts" class="block py-2 text-white hover:text-accent transition-colors">Contacts</a></li>
+        <li class="pt-4 border-t border-blue-800">
           <div class="flex space-x-4">
-            <button class="px-3 py-1 bg-primary text-white rounded" onclick="setLanguage('EN')">EN</button>
+            <button class="px-3 py-1 bg-white text-primary rounded" onclick="setLanguage('EN')">EN</button>
             <button class="px-3 py-1 bg-accent text-primary font-medium rounded" onclick="setLanguage('AM')">AM</button>
           </div>
         </li>
@@ -264,26 +319,29 @@
       <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-accent opacity-10 blur-3xl"></div>
       <div class="eagle absolute text-4xl top-1/3 left-0 animate-eagle-fly">🦅</div>
     </div>
-    
+
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">
           <span class="gradient-text">Innovative Tech Solutions</span> <br>Powered by Excellence
         </h1>
         <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Eagle Tech Solution delivers cutting-edge software development, AI solutions, and cybersecurity services with our signature eagle-dark blue precision and golden excellence.
+          Eagle Tech Solution delivers cutting-edge software development, AI solutions, and cybersecurity services with
+          our signature eagle-dark blue precision and golden excellence.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="#services" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg">
             Explore Services
           </a>
-          <a href="#contacts" class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-medium rounded-lg transition-colors shadow-lg border border-primary">
+          <a href="#contacts"
+            class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-medium rounded-lg transition-colors shadow-lg border border-primary">
             Contact Us
           </a>
         </div>
       </div>
-      
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" data-aos="fade-up"
+        data-aos-delay="200">
         <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
           <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-cloud text-2xl" style="color: var(--primary);"></i>
@@ -291,7 +349,7 @@
           <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cloud Solutions</h3>
           <p class="text-gray-600 text-sm">Scalable and secure cloud infrastructure</p>
         </div>
-        
+
         <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
           <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-robot text-2xl" style="color: var(--accent);"></i>
@@ -299,7 +357,7 @@
           <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">AI & Automation</h3>
           <p class="text-gray-600 text-sm">Smart solutions for business growth</p>
         </div>
-        
+
         <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
           <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-shield-alt text-2xl" style="color: var(--secondary);"></i>
@@ -307,7 +365,7 @@
           <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cybersecurity</h3>
           <p class="text-gray-600 text-sm">Protecting your digital assets</p>
         </div>
-        
+
         <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
           <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-graduation-cap text-2xl" style="color: var(--accent);"></i>
@@ -317,11 +375,14 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Animated floating elements -->
-    <div class="absolute bottom-10 left-10 w-8 h-8 rounded-full" style="background-color: var(--primary); opacity: 0.2;" class="animate-float"></div>
-    <div class="absolute top-20 right-20 w-12 h-12 rounded-full" style="background-color: var(--accent); opacity: 0.2;" class="animate-float animation-delay-2000"></div>
-    <div class="absolute top-1/3 right-1/4 w-10 h-10 rounded-full" style="background-color: var(--secondary); opacity: 0.2;" class="animate-float animation-delay-3000"></div>
+    <div class="absolute bottom-10 left-10 w-8 h-8 rounded-full" style="background-color: var(--primary); opacity: 0.2;"
+      class="animate-float"></div>
+    <div class="absolute top-20 right-20 w-12 h-12 rounded-full" style="background-color: var(--accent); opacity: 0.2;"
+      class="animate-float animation-delay-2000"></div>
+    <div class="absolute top-1/3 right-1/4 w-10 h-10 rounded-full"
+      style="background-color: var(--secondary); opacity: 0.2;" class="animate-float animation-delay-3000"></div>
   </section>
 
   <!-- Services Section -->
@@ -334,10 +395,11 @@
           Comprehensive technology solutions with the precision of our eagle-dark blue and the excellence of gold
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Service Card 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Purple Modern Animated Computer Science Presentation.mp4" type="video/mp4">
@@ -350,19 +412,22 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Custom Software Development</h3>
             <p class="text-gray-600 mb-4">
-              Scalable applications built with modern technologies and agile methodologies to drive your business forward.
+              Scalable applications built with modern technologies and agile methodologies to drive your business
+              forward.
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Service Card 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/cybersecurity.mp4" type="video/mp4">
@@ -379,15 +444,17 @@
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Service Card 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Illustrative Ai Event Mobile UI Prototype.mp4" type="video/mp4">
@@ -404,15 +471,17 @@
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Service Card 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Purple Modern Animated Computer Science4 Presentationpage4.mp4" type="video/mp4">
@@ -429,15 +498,17 @@
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Service Card 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/allinone.mp4" type="video/mp4">
@@ -454,18 +525,21 @@
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Service Card 6 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Orange and Purple Modern Illustration Web Development Instagram Post.mp4" type="video/mp4">
+              <source src="images/Orange and Purple Modern Illustration Web Development Instagram Post.mp4"
+                type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
@@ -479,18 +553,21 @@
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
       </div>
-      
+
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#contacts" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg inline-flex items-center">
+        <a href="#contacts"
+          class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg inline-flex items-center">
           Get a Free Consultation
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </a>
@@ -507,16 +584,18 @@
           Empowering individuals and organizations through technology education with our golden standard of excellence
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Education Card 1 -->
         <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up">
           <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
             <i class="fas fa-book-open text-2xl" style="color: var(--primary);"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Educational Program Development</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Educational Program Development
+          </h3>
           <p class="text-gray-600 mb-6">
-            We design tailored curricula, train teachers, and build competency-based frameworks aligned with ministry standards.
+            We design tailored curricula, train teachers, and build competency-based frameworks aligned with ministry
+            standards.
           </p>
           <ul class="space-y-2 mb-6">
             <li class="flex items-start">
@@ -532,16 +611,19 @@
               <span>Competency framework development</span>
             </li>
           </ul>
-          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors"
+            style="color: var(--secondary);">
             Learn more
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </a>
         </div>
-        
+
         <!-- Education Card 2 -->
-        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up"
+          data-aos-delay="100">
           <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
             <i class="fas fa-laptop-code text-2xl" style="color: var(--primary);"></i>
           </div>
@@ -563,16 +645,19 @@
               <span>Smart classroom solutions</span>
             </li>
           </ul>
-          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors"
+            style="color: var(--secondary);">
             Learn more
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </a>
         </div>
-        
+
         <!-- Education Card 3 -->
-        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up"
+          data-aos-delay="200">
           <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
             <i class="fas fa-user-graduate text-2xl" style="color: var(--primary);"></i>
           </div>
@@ -594,9 +679,11 @@
               <span>Career development workshops</span>
             </li>
           </ul>
-          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors"
+            style="color: var(--secondary);">
             Learn more
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </a>
@@ -614,10 +701,12 @@
           The talented professionals behind Eagle Tech Solution
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
         <!-- Team Member 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card"
+          data-aos="fade-up">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/sisay Negash short.jpg" alt="Sisay Negash" class="w-full h-full object-cover">
@@ -627,24 +716,30 @@
             <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Sisay Negash</h3>
             <p class="text-gray-600 mb-4">Software Architect</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/sisaynegashmengistu" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
+              <a href="https://www.linkedin.com/in/sisaynegashmengistu" target="_blank"
+                class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/SisayNegashMengistu" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
+              <a href="https://github.com/SisayNegashMengistu" target="_blank"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="mailto:ctrlasoft@gmail.com" class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
+              <a href="mailto:ctrlasoft@gmail.com"
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:+251914072437" class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
+              <a href="tel:+251914072437"
+                class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
                 <i class="fas fa-phone"></i>
               </a>
             </div>
           </div>
         </div>
-        
+
         <!-- Team Member 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/chalachew mulu.jpeg" alt="Chalachew Mulu" class="w-full h-full object-cover">
@@ -654,24 +749,30 @@
             <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Chalachew Mulu</h3>
             <p class="text-gray-600 mb-4">Frontend Developer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/chalachewm" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
+              <a href="https://www.linkedin.com/in/chalachewm" target="_blank"
+                class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/chalachew-mulu" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
+              <a href="https://github.com/chalachew-mulu" target="_blank"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="mailto:chalachewmulu@gmail.com" class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
+              <a href="mailto:chalachewmulu@gmail.com"
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:+251946098413" class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
+              <a href="tel:+251946098413"
+                class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
                 <i class="fas fa-phone"></i>
               </a>
             </div>
           </div>
         </div>
-        
+
         <!-- Team Member 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/misge-desta.jpeg" alt="Misge Desta" class="w-full h-full object-cover">
@@ -679,26 +780,32 @@
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Misge Desta</h3>
-            <p class="text-gray-600 mb-4">Backend Developer & PM</p>
+            <p class="text-gray-600 mb-4">Project Manager</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/msge-desta-854343131/" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
+              <a href="https://www.linkedin.com/in/msge-desta-854343131/" target="_blank"
+                class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/msge" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
+              <a href="https://github.com/msge" target="_blank"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="mailto:misge711@gmail.com" class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
+              <a href="mailto:misge711@gmail.com"
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:+251931832112" class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
+              <a href="tel:+251931832112"
+                class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
                 <i class="fas fa-phone"></i>
               </a>
             </div>
           </div>
         </div>
-        
+
         <!-- Team Member 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="300">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card"
+          data-aos="fade-up" data-aos-delay="300">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/seyifu tadesse.png" alt="Seyifu Tadesse" class="w-full h-full object-cover">
@@ -708,24 +815,30 @@
             <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Seyifu Tadesse</h3>
             <p class="text-gray-600 mb-4">DevOps Engineer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/seifu-tadesse-718b71270" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
+              <a href="https://www.linkedin.com/in/seifu-tadesse-718b71270" target="_blank"
+                class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/S12-Xdev" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
+              <a href="https://github.com/S12-Xdev" target="_blank"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="mailto:seifu_tadesse@mkau.edu.et" class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
+              <a href="mailto:seifu_tadesse@mkau.edu.et"
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:+251924921828" class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
+              <a href="tel:+251924921828"
+                class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
                 <i class="fas fa-phone"></i>
               </a>
             </div>
           </div>
         </div>
-        
+
         <!-- Team Member 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="400">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card"
+          data-aos="fade-up" data-aos-delay="400">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/eshete-gashew.jpeg" alt="Eshetie Gashew" class="w-full h-full object-cover">
@@ -735,16 +848,20 @@
             <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Eshetie Gashew</h3>
             <p class="text-gray-600 mb-4">Full Stack Developer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/eshetie-gashaw-7a3939162" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
+              <a href="https://www.linkedin.com/in/eshetie-gashaw-7a3939162" target="_blank"
+                class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/Eshetiegashaw" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
+              <a href="https://github.com/Eshetiegashaw" target="_blank"
+                class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="mailto:eshetie.216@gmail.com" class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
+              <a href="mailto:eshetie.216@gmail.com"
+                class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-colors">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:+251965578302" class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
+              <a href="tel:+251965578302"
+                class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-colors">
                 <i class="fas fa-phone"></i>
               </a>
             </div>
@@ -763,15 +880,18 @@
           Stay updated with our recent projects and company news
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Announcement Card 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
-            <img src="images/photo_5809899843412412156_y.jpg" alt="Evaluation System" class="w-full h-full object-cover">
+            <img src="images/photo_5809899843412412156_y.jpg" alt="Evaluation System"
+              class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">New Release</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full"
+                style="color: var(--primary); border: 1px solid var(--primary);">New Release</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
@@ -780,24 +900,28 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Evaluation System Launch</h3>
             <p class="text-gray-600 mb-4">
-              Our team has developed a robust evaluation system to assess performance, generate reports, and provide actionable insights.
+              Our team has developed a robust evaluation system to assess performance, generate reports, and provide
+              actionable insights.
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Announcement Card 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <img src="images/evaluation system.png" alt="Staff Profiles" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">Update</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full"
+                style="color: var(--primary); border: 1px solid var(--primary);">Update</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
@@ -806,24 +930,28 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Staff Profile Management</h3>
             <p class="text-gray-600 mb-4">
-              A centralized system to manage employee profiles, qualifications, and work history for easy access and updates.
+              A centralized system to manage employee profiles, qualifications, and work history for easy access and
+              updates.
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Announcement Card 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <img src="images/photo_5809899843412412157_y.jpg" alt="Clearance System" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">Feature</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full"
+                style="color: var(--primary); border: 1px solid var(--primary);">Feature</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
@@ -832,22 +960,27 @@
           <div class="p-6">
             <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Digital Clearance System</h3>
             <p class="text-gray-600 mb-4">
-              A streamlined platform to manage clearance requests, approvals, and tracking for efficient institutional processes.
+              A streamlined platform to manage clearance requests, approvals, and tracking for efficient institutional
+              processes.
             </p>
             <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </div>
       </div>
-      
+
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#" class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors" style="border-color: var(--primary); color: var(--primary);">
+        <a href="#"
+          class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          style="border-color: var(--primary); color: var(--primary);">
           View All Announcements
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </a>
@@ -864,16 +997,20 @@
           Explore our work through these video demonstrations
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Video 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/allinone.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
+              <button
+                class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
@@ -885,15 +1022,21 @@
             </p>
           </div>
         </div>
-        
+
         <!-- Video 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Beige Blue Red Yellow Simple English Patterns of Development in Writing Presentation (1).mp4" type="video/mp4">
+              <source
+                src="images/Beige Blue Red Yellow Simple English Patterns of Development in Writing Presentation (1).mp4"
+                type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
+              <button
+                class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
@@ -905,15 +1048,19 @@
             </p>
           </div>
         </div>
-        
+
         <!-- Video 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
+          data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/ice_video_20250805-215525.webm" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
+              <button
+                class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
@@ -926,11 +1073,14 @@
           </div>
         </div>
       </div>
-      
+
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#" class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors" style="border-color: var(--primary); color: var(--primary);">
+        <a href="#"
+          class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          style="border-color: var(--primary); color: var(--primary);">
           View More Videos
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </a>
@@ -947,7 +1097,7 @@
           What our clients say about working with Eagle Tech Solution
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Testimonial 1 -->
         <div class="bg-gray-50 rounded-xl p-8 shadow-md" data-aos="fade-up">
@@ -968,13 +1118,17 @@
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "I have worked with this team for over five years as their lecturer and project collaborator. Their technical expertise, professionalism, and dedication to delivering high-quality software solutions are truly commendable."
+            "I have worked with this team for over five years as their lecturer and project collaborator. Their
+            technical expertise, professionalism, and dedication to delivering high-quality software solutions are truly
+            commendable."
           </p>
           <div class="flex space-x-4">
-            <a href="https://github.com/dryared" target="_blank" class="text-gray-500 hover:text-gray-700 transition-colors">
+            <a href="https://github.com/dryared" target="_blank"
+              class="text-gray-500 hover:text-gray-700 transition-colors">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/esubalew-alemneh-3b2a93105" target="_blank" class="text-gray-500 hover:text-blue-700 transition-colors">
+            <a href="https://www.linkedin.com/in/esubalew-alemneh-3b2a93105" target="_blank"
+              class="text-gray-500 hover:text-blue-700 transition-colors">
               <i class="fab fa-linkedin-in"></i>
             </a>
             <a href="mailto:esubalew@gmail.com" class="text-gray-500 hover:text-red-600 transition-colors">
@@ -982,7 +1136,7 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Testimonial 2 -->
         <div class="bg-gray-50 rounded-xl p-8 shadow-md" data-aos="fade-up" data-aos-delay="100">
           <div class="flex items-start mb-6">
@@ -1002,7 +1156,9 @@
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "Eagle Tech transformed our clearance process. It's now faster, more secure, and fully digital! The team's understanding of our institutional needs and their ability to deliver tailored solutions exceeded our expectations."
+            "Eagle Tech transformed our clearance process. It's now faster, more secure, and fully digital! The team's
+            understanding of our institutional needs and their ability to deliver tailored solutions exceeded our
+            expectations."
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-500 hover:text-gray-700 transition-colors">
@@ -1016,7 +1172,7 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Testimonial 3 -->
         <div class="bg-gray-50 rounded-xl p-8 shadow-md" data-aos="fade-up" data-aos-delay="200">
           <div class="flex items-start mb-6">
@@ -1036,7 +1192,8 @@
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "Their AI solutions for healthcare are game-changing. The insights we gain from their predictive analytics tools have helped us improve patient outcomes while optimizing our resources."
+            "Their AI solutions for healthcare are game-changing. The insights we gain from their predictive analytics
+            tools have helped us improve patient outcomes while optimizing our resources."
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-500 hover:text-gray-700 transition-colors">
@@ -1050,12 +1207,13 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Testimonial 4 -->
         <div class="bg-gray-50 rounded-xl p-8 shadow-md" data-aos="fade-up" data-aos-delay="300">
           <div class="flex items-start mb-6">
             <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Business Owner" class="w-full h-full object-cover">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Business Owner"
+                class="w-full h-full object-cover">
             </div>
             <div>
               <h4 class="font-bold" style="color: var(--primary);">Business Owner</h4>
@@ -1070,7 +1228,8 @@
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "The custom inventory management system developed by Eagle Tech has revolutionized our operations. What impressed me most was their willingness to understand our unique business processes."
+            "The custom inventory management system developed by Eagle Tech has revolutionized our operations. What
+            impressed me most was their willingness to understand our unique business processes."
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-500 hover:text-gray-700 transition-colors">
@@ -1093,24 +1252,30 @@
     <div class="container mx-auto px-4">
       <div class="flex flex-col lg:flex-row gap-12">
         <div class="lg:w-2/3" data-aos="fade-right">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Eagle Tech Solution</span></h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Eagle Tech Solution</span>
+          </h2>
           <p class="text-gray-700 mb-6">
-            <span class="font-semibold" style="color: var(--primary);">Eagle Tech Solution</span> is a dynamic software company established by five passionate software engineers with a vision to drive digital transformation in Ethiopia and beyond. We combine technical expertise with deep understanding of local market needs.
+            <span class="font-semibold" style="color: var(--primary);">Eagle Tech Solution</span> is a dynamic software
+            company established by five passionate software engineers with a vision to drive digital transformation in
+            Ethiopia and beyond. We combine technical expertise with deep understanding of local market needs.
           </p>
-          
+
           <div class="mb-8">
             <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Our Mission</h3>
             <p class="text-gray-700 mb-4">
-              To deliver cutting-edge technology solutions that empower businesses, educational institutions, and government agencies to achieve their digital transformation goals while fostering local talent and expertise.
+              To deliver cutting-edge technology solutions that empower businesses, educational institutions, and
+              government agencies to achieve their digital transformation goals while fostering local talent and
+              expertise.
             </p>
           </div>
-          
+
           <div class="mb-8">
             <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Core Objectives</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
                 <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
-                <span>Design and sell competitive digital solutions across various domains of software development</span>
+                <span>Design and sell competitive digital solutions across various domains of software
+                  development</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
@@ -1118,7 +1283,8 @@
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
-                <span>Promote digital literacy and reduce technology-related illiteracy in underserved communities</span>
+                <span>Promote digital literacy and reduce technology-related illiteracy in underserved
+                  communities</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
@@ -1126,15 +1292,18 @@
               </li>
             </ul>
           </div>
-          
-          <div class="p-6 rounded-lg border-l-4" style="background-color: rgba(4, 35, 84, 0.05); border-color: var(--primary);">
+
+          <div class="p-6 rounded-lg border-l-4"
+            style="background-color: rgba(4, 35, 84, 0.05); border-color: var(--primary);">
             <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Our Approach</h3>
             <p class="text-gray-700">
-              Unlike traditional open-source organizations, Eagle Tech Solution operates as a for-profit enterprise with a strong commitment to social impact. We believe sustainable technology solutions come from balancing innovation with practical business models that ensure long-term viability and continuous improvement.
+              Unlike traditional open-source organizations, Eagle Tech Solution operates as a for-profit enterprise with
+              a strong commitment to social impact. We believe sustainable technology solutions come from balancing
+              innovation with practical business models that ensure long-term viability and continuous improvement.
             </p>
           </div>
         </div>
-        
+
         <div class="lg:w-1/3" data-aos="fade-left">
           <div class="bg-white p-8 rounded-xl shadow-md sticky top-8">
             <h3 class="text-xl font-bold mb-6" style="color: var(--accent);">Quick Links</h3>
@@ -1170,11 +1339,12 @@
                 </a>
               </li>
             </ul>
-            
+
             <div class="mt-8 pt-6 border-t border-gray-200">
               <h3 class="text-xl font-bold mb-4" style="color: var(--accent);">Support Our Mission</h3>
               <p class="text-gray-700 mb-4">
-                You can support Eagle Tech Solution by partnering with us, purchasing our products, or inviting us to collaborate on projects that aim to uplift technology in Ethiopia and beyond.
+                You can support Eagle Tech Solution by partnering with us, purchasing our products, or inviting us to
+                collaborate on projects that aim to uplift technology in Ethiopia and beyond.
               </p>
               <a href="#contacts" class="inline-block px-6 py-2 rounded-lg font-medium transition-colors btn-accent">
                 Get Involved
@@ -1187,53 +1357,64 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contacts" class="py-20 text-white" style="background-color: var(--primary);">
+  <section id="contacts" class="py-20 text-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span style="color: var(--accent);">Touch</span></h2>
-        <p class="text-blue-100 max-w-2xl mx-auto">
+        <p class="text-black max-w-2xl mx-auto">
           Have a project in mind or want to learn more about our services? Contact us today.
         </p>
       </div>
-      
+
       <div class="flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/2" data-aos="fade-right">
           <form class="bg-white rounded-xl shadow-lg p-8 text-gray-800">
             <h3 class="text-2xl font-bold mb-6" style="color: var(--primary);">Send Us a Message</h3>
-            
+
             <div class="mb-6">
               <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-              <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Enter your name">
+              <input type="text" id="name"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+                style="focus:ring-color: var(--primary);" placeholder="Enter your name">
             </div>
-            
+
             <div class="mb-6">
               <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-              <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Enter your email">
+              <input type="email" id="email"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+                style="focus:ring-color: var(--primary);" placeholder="Enter your email">
             </div>
-            
+
             <div class="mb-6">
               <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-              <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="What's this about?">
+              <input type="text" id="subject"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+                style="focus:ring-color: var(--primary);" placeholder="What's this about?">
             </div>
-            
+
             <div class="mb-6">
               <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-              <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Tell us about your project or inquiry"></textarea>
+              <textarea id="message" rows="5"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+                style="focus:ring-color: var(--primary);"
+                placeholder="Tell us about your project or inquiry"></textarea>
             </div>
-            
+
             <button type="submit" class="w-full py-3 btn-primary text-white font-medium rounded-lg shadow-lg">
               Send Message
             </button>
           </form>
         </div>
-        
-        <div class="lg:w-1/2" data-aos="fade-left">
-          <div class="rounded-xl p-8 h-full" style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+
+        <div class="lg:w-1/2" data-aos="fade-left" style="background-color: var(--primary);">
+          <div class="rounded-xl p-8 h-full"
+            style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
             <h3 class="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-            
+
             <div class="space-y-6">
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
                 </div>
                 <div>
@@ -1241,31 +1422,33 @@
                   <p class="text-blue-100">Bahir Dar, Ethiopia</p>
                 </div>
               </div>
-              
+
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fas fa-envelope" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Email Us</h4>
-                  <p class="text-blue-100">info@eagletechsolution.com</p>
+                  <p class="text-blue-100">eagletech16@gmail.com</p>
                   <p class="text-blue-100">support@eagletechsolution.com</p>
                 </div>
               </div>
-              
+
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fas fa-phone-alt" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Call Us</h4>
-                  <p class="text-blue-100">+251 912 345 678</p>
-                  <p class="text-blue-100">+251 911 987 654</p>
+                  <p class="text-blue-100">+251 920 027 680</p>
                 </div>
               </div>
-              
+
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fas fa-clock" style="color: var(--accent);"></i>
                 </div>
                 <div>
@@ -1275,23 +1458,33 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="mt-8 pt-6 border-t border-blue-800">
               <h4 class="font-bold text-white mb-4">Follow Us</h4>
               <div class="flex space-x-4">
-                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
+                <a href="#"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
+                <a href="#"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
+                <a href="#"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
+                <a href="#"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-telegram"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
+                <a href="#"
+                  class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors"
+                  style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-github"></i>
                 </a>
               </div>
@@ -1301,37 +1494,55 @@
       </div>
     </div>
   </section>
+  <div class="relative h-16 w-full overflow-hidden bg-[#042354] -mt-1">
+    <!-- Single Medium Blue Wave -->
+    <svg class="absolute top-0 left-0 w-[200%] h-full animate-wave-single" viewBox="0 0 1200 120"
+      preserveAspectRatio="none" style="transform: rotate(180deg)">
+      <path d="M0,0 C150,40 350,60 600,60 C850,60 1050,40 1200,0 V120 H0 Z" fill="#3e64a4" />
+    </svg>
+  </div>
+
+
+  </div>
 
   <!-- Footer -->
-  <footer class="py-12" style="background-color: var(--primary); color: #cbd5e1;">
+  <!-- Ocean Wave Divider Before Footer
+  <div class="ocean-wave">
+    <div class="wave"></div>
+    <div class="wave-reverse"></div>
+  </div> -->
+
+  <!-- Footer Section -->
+  <footer class="bg-[#042354] text-[#cbd5e1] pt-12 pb-24"> <!-- pb-24 prevents content hiding behind fixed bar -->
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Column 1 -->
+        <!-- Column 1: Company Info -->
         <div data-aos="fade-up">
           <div class="flex items-center mb-4">
             <img src="images/Logo White Color(3)-cropped.svg" alt="Eagle Tech Solution Logo" class="h-10">
             <span class="ml-2 text-xl font-bold text-white">Eagle Tech</span>
           </div>
           <p class="mb-4">
-            Innovative technology solutions for the digital age. Empowering businesses and institutions through cutting-edge software, AI, and cybersecurity services.
+            Innovative technology solutions for the digital age. Empowering businesses and institutions through
+            cutting-edge software, AI, and cybersecurity services.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-blue-200 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-lg">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="text-blue-200 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-lg">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-blue-200 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-lg">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="#" class="text-blue-200 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-lg">
               <i class="fab fa-github"></i>
             </a>
           </div>
         </div>
-        
-        <!-- Column 2 -->
+
+        <!-- Column 2: Quick Links -->
         <div data-aos="fade-up" data-aos-delay="100">
           <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
           <ul class="space-y-2">
@@ -1343,8 +1554,8 @@
             <li><a href="#contacts" class="hover:text-white transition-colors">Contact</a></li>
           </ul>
         </div>
-        
-        <!-- Column 3 -->
+
+        <!-- Column 3: Services -->
         <div data-aos="fade-up" data-aos-delay="200">
           <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
           <ul class="space-y-2">
@@ -1356,52 +1567,66 @@
             <li><a href="#" class="hover:text-white transition-colors">IT Consulting</a></li>
           </ul>
         </div>
-        
-        <!-- Column 4 -->
+
+        <!-- Column 4: Contact & Newsletter -->
         <div data-aos="fade-up" data-aos-delay="300">
           <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
           <address class="not-italic">
             <div class="flex items-start mb-3">
-              <i class="fas fa-map-marker-alt mt-1 mr-3" style="color: var(--accent);"></i>
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-[#e2b007]"></i>
               <span>Bahir Dar, Ethiopia</span>
             </div>
             <div class="flex items-start mb-3">
-              <i class="fas fa-envelope mt-1 mr-3" style="color: var(--accent);"></i>
-              <span>info@eagletechsolution.com</span>
+              <i class="fas fa-envelope mt-1 mr-3 text-[#e2b007]"></i>
+              <span>eagletech16@gmail.com</span>
             </div>
             <div class="flex items-start mb-3">
-              <i class="fas fa-phone-alt mt-1 mr-3" style="color: var(--accent);"></i>
-              <span>+251 912 345 678</span>
+              <i class="fas fa-phone-alt mt-1 mr-3 text-[#e2b007]"></i>
+              <span>+251 920 026 780</span>
             </div>
           </address>
-          
+
           <h4 class="text-lg font-semibold text-white mt-6 mb-3">Newsletter</h4>
-          <p class="mb-3">Subscribe to our newsletter for updates</p>
           <form class="flex">
-            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
-            <button type="submit" class="px-4 py-2 rounded-r-lg font-medium transition-colors" style="background-color: var(--accent); color: var(--primary);">
+            <input type="email" placeholder="Your email"
+              class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+            <button type="submit"
+              class="px-4 py-2 rounded-r-lg font-medium bg-[#e2b007] text-[#042354] hover:bg-[#d1a206] transition-colors">
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
         </div>
       </div>
-      
-      <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" data-aos="fade-up">
-        <p>&copy; 2025 Eagle Tech Solution. All rights reserved.</p>
-        <div class="flex space-x-6 mt-4 md:mt-0">
-          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+    </div>
+
+    <!-- Fixed Copyright Bar -->
+    <div class="border-t border-blue-800 py-4 bg-[#042354] fixed bottom-0 left-0 w-full z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-white text-sm md:text-base mb-2 md:mb-0">
+            &copy; 2025 Eagle Tech Solution. All rights reserved.
+          </p>
+          <div class="flex space-x-4 md:space-x-6">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-sm md:text-base">
+              Privacy Policy
+            </a>
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-sm md:text-base">
+              Terms of Service
+            </a>
+            <a href="#" class="text-blue-200 hover:text-white transition-colors text-sm md:text-base">
+              Sitemap
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Back to top button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible" style="background-color: var(--primary); color: var(--accent); border: 2px solid var(--accent);">
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+      class="fixed bottom-20 right-6 w-12 h-12 rounded-full shadow-lg flex items-center justify-center bg-[#042354] text-[#e2b007] border-2 border-[#e2b007] transition-all opacity-0 invisible hover:bg-[#031a3f]">
       <i class="fas fa-arrow-up"></i>
     </button>
   </footer>
-
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -1411,25 +1636,25 @@
       easing: 'ease-in-out',
       once: true
     });
-    
+
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const closeMobileMenu = document.getElementById('closeMobileMenu');
     const mobileNav = document.getElementById('mobileNav');
-    
+
     mobileMenuBtn.addEventListener('click', () => {
       mobileNav.classList.remove('translate-x-full');
       mobileNav.classList.add('translate-x-0');
     });
-    
+
     closeMobileMenu.addEventListener('click', () => {
       mobileNav.classList.remove('translate-x-0');
       mobileNav.classList.add('translate-x-full');
     });
-    
+
     // Back to top button
     const backToTopBtn = document.getElementById('backToTop');
-    
+
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 300) {
         backToTopBtn.classList.remove('opacity-0', 'invisible');
@@ -1439,14 +1664,14 @@
         backToTopBtn.classList.add('opacity-0', 'invisible');
       }
     });
-    
+
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     });
-    
+
     // Language switcher
     function setLanguage(lang) {
       // In a real implementation, this would change the page language
@@ -1454,57 +1679,45 @@
       // For demo purposes, we'll just show an alert
       alert(`Language changed to ${lang === 'EN' ? 'English' : 'Amharic'}`);
     }
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           window.scrollTo({
             top: targetElement.offsetTop - 80,
             behavior: 'smooth'
           });
-          
+
           // Close mobile menu if open
           mobileNav.classList.remove('translate-x-0');
           mobileNav.classList.add('translate-x-full');
         }
       });
     });
-    
+
     // Header scroll effect
     const header = document.querySelector('.header');
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      
-      if (currentScroll <= 0) {
-        header.classList.remove('shadow-md');
-        header.classList.remove('bg-white/95');
-        header.classList.add('bg-white');
-        return;
+
+      if (currentScroll > 100) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
       }
-      
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scroll down
-        header.classList.add('shadow-md');
-        header.classList.add('bg-white/95');
-        header.classList.add('backdrop-blur-sm');
-      } else if (currentScroll < lastScroll && currentScroll > 100) {
-        // Scroll up
-        header.classList.add('shadow-md');
-        header.classList.add('bg-white/95');
-        header.classList.add('backdrop-blur-sm');
-      }
-      
+
       lastScroll = currentScroll;
     });
   </script>
 </body>
+
 </html>
