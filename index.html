@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eagle Tech Solution</title>
+  <meta name="description" content="home about eagle tech solutions">
+  <link rel="icon" href="images/eagle-tech-solution.ico" type="image/x-icon">
+  <link rel="preload" href="./fonts/Montserrat/Montserrat-Regular.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+  <script type="module" src="main.js" defer></script>
+<link rel="stylesheet" href="sisay-css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="javascript.js"> </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+          .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.4 }
+            to { opacity: 1 }
+        }
+    </style>
+</head>
+
+<body>
+ <header class="header">
+  <div class="navbar-container">
+    <div class="logo">
+      <a href="#">
+        <img src="images/Logo White Color(3)-cropped.svg" alt=" Website Logo" />
+      </a>
+    </div>
+ <nav class="navbar">
+  <ul class="nav-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+    <li><a href="#announcements">Announcements</a></li>
+    <li><a href="#education-training-summary">Education</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li class="language-switcher">
+      <button id="langToggle" onclick="toggleLanguageMenu()">🌐</button>
+      <ul id="langMenu" class="lang-dropdown">
+        <li onclick="setLanguage('EN')">EN</li>
+        <li onclick="setLanguage('AM')">AM</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+   
+  </div>
+</header>
+<!-- body --begin here -->
+  <div class="body-main">
+<section id="home" class="relative min-h-screen bg-gray-100 overflow-hidden py-10 px-4">
+  <!-- Animated Eagle Fly -->
+  <div class="absolute w-10 h-6 text-2xl animate-eagle-fly" style="top: 40%; left: -50px;">🦅</div>
+
+  <!-- Optional Clouds -->
+  <div class="absolute w-24 h-8 bg-white/70 rounded-full blur-sm top-10 left-1/4 animate-pulse"></div>
+  <div class="absolute w-32 h-10 bg-white/60 rounded-full blur-sm top-32 left-2/3 animate-pulse delay-500"></div>
+
+  <!-- Hero Text -->
+  <div class="text-center text-gray-800 mb-12">
+    <h1 class="text-4xl font-bold">
+      <span class="text-yellow-500">Eagle Tech</span> <span class="text-gray-900">Solution</span>
+    </h1>
+    <p class="mt-4 text-lg">
+      Your Trusted Partner in 
+      <span class="text-yellow-500">Cloud</span>, 
+      <span class="text-gray-900">AI</span>, and 
+      <span class="text-yellow-500">Cybersecurity</span>
+    </p>
+  </div>
+
+  <!-- Grid Section: Components -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
+    
+
+  
+  </div>
+
+ 
+</section>
+
+
+
+<!-- end of home section -->
+<!-- Services Section -->
+<section id="services" class="services-section" style="padding: 3rem 0;">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Services</h2>
+
+    <div class="services-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+
+      <!-- Repeatable Service Card -->
+     <div class="service-card" style="flex: 1 1 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+  
+  <!-- Replaced image with video -->
+  <video autoplay muted loop playsinline style="width: 100%; height: 170px; object-fit: cover;">
+    <source src="images/Blue Purple Modern Animated Computer Science Presentation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <div style="padding: 1rem;">
+    <h3 style="color: #1e90ff; font-size: 1.1rem;">Software Development</h3>
+    <p style="font-size: 0.9rem; color: #444;">
+      Scalable apps and platforms built with modern technologies and agile methodologies.
+    </p>
+  </div>
+  <div style="text-align: right; padding: 0 1rem 1rem;">
+    <a href="#" style="color: #1976d2; font-weight: bold; text-decoration: none;">READ MORE »</a>
+  </div>
+</div>
+
+<div class="service-card" style="flex: 1 1 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+  
+  <video autoplay muted loop playsinline style="width: 100%; height: 160px; object-fit: cover;">
+    <source src="images/Blue Purple Modern Animated Computer Science4 Presentationpage4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <div style="padding: 1rem;">
+    <h3 style="color: #1e90ff; font-size: 1.1rem;">Training</h3>
+    <p style="font-size: 0.9rem; color: #444;">
+      Training programs in AI, cloud, data science, and cybersecurity tailored to skill development.
+    </p>
+  </div>
+  
+  <div style="text-align: right; padding: 0 1rem 1rem;">
+    <a href="#" style="color: #1976d2; font-weight: bold; text-decoration: none;">READ MORE »</a>
+  </div>
+
+</div>
+
+
+   <div class="service-card" style="flex: 1 1 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+  <video autoplay muted loop playsinline style="width: 100%; height: 160px; object-fit: cover;">
+    <source src="images/cybersecurity.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="padding: 1rem;">
+    <h3 style="color: #1e90ff; font-size: 1.1rem;">Cybersecurity Services</h3>
+    <p style="font-size: 0.9rem; color: #444;">
+      Defend your assets with our threat modeling, risk assessment, and secure dev practices.
+    </p>
+  </div>
+  <div style="text-align: right; padding: 0 1rem 1rem;">
+    <a href="#" style="color: #1976d2; font-weight: bold; text-decoration: none;">READ MORE »</a>
+  </div>
+</div>
+<!-- web development -->
+ <div class="service-card" style="flex: 1 1 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+  <video autoplay muted loop playsinline style="width: 100%; height: 160px; object-fit: cover;">
+    <source src="images/Blue Illustrative Ai Event Mobile UI Prototype.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="padding: 1rem;">
+    <h3 style="color: #1e90ff; font-size: 1.1rem;">AI & Automation Services</h3>
+    <p style="font-size: 0.9rem; color: #444;">
+      Automate workflows and enhance intelligence with our custom AI models, machine learning, and robotic process automation solutions.
+    </p>
+  </div>
+  <div style="text-align: right; padding: 0 1rem 1rem;">
+    <a href="#" style="color: #1976d2; font-weight: bold; text-decoration: none;">READ MORE »</a>
+  </div>
+</div>
+
+<div class="service-card" style="flex: 1 1 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+  <video src="images/Orange and Purple Modern Illustration Web Development Instagram Post.mp4" utoplay muted loop playsinline style="width: 100%; height: 160px; object-fit: cover;"></video>
+  <div style="padding: 1rem;">
+    <h3 style="color: #1e90ff; font-size: 1.1rem;">Enterprise Web App Development</h3>
+    <p style="font-size: 0.9rem; color: #444;">
+      Full-stack development for scalable platforms using Django, Node.js, React, and APIs.
+    </p>
+  </div>
+  <div style="text-align: right; padding: 0 1rem 1rem;">
+    <a href="#" style="color:#1976d2; font-weight: bold; text-decoration: none;">READ MORE »</a>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!-- end of section-servies we provifded -->
+<!-- Education & Training Section -->
+ <section id="education-training-summary" class="education-training-section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="summary-cards">
+      
+      <!-- Educational Program Development -->
+      <div class="summary-card">
+        <img src="images/Systems and technology programming company logo.png" alt="Curriculum Development Icon" class="summary-icon">
+        <h3> <span class="blue">Educational</span> <span class="orange"> Program Development</span></h3>
+        <p>We design tailored curricula, train teachers, and build competency-based frameworks aligned with ministry standards to enhance classroom teaching quality.</p>
+       <!-- <br/><br/>
+        <button class="read-more-btn">Read more &gt;&gt;</button> -->
+      </div>
+
+      <!-- Digital & E-Learning Solutions -->
+      <div class="summary-card">
+        <img src="images/Colorful Illustrative Career Development Presentation.png" alt="E-Learning Solutions Icon" class="summary-icon">
+        <h3><span class="blue">Digital &</span>  <span class="orange">E-Learning Solutions</span></h3>
+        <p>Empowering learning through LMS platforms, mobile apps, smart classrooms, and AI-based tools that foster interactive and flexible digital education.</p>
+        <!-- <button class="read-more-btn">Read more &gt;&gt;</button> -->
+      </div>
+
+      <!-- Skills & Workforce Development -->
+      <div class="summary-card">
+        <img src="images/vacationa and training.png" alt="Vocational Training Icon" class="summary-icon">
+        <h3><span class="blue">Skills &</span> <span class="orange">Workforce Development</span></h3>
+        <p>Our vocational programs address skill gaps and provide industry-relevant certifications that enable learners to thrive in dynamic job markets.</p>
+        <!-- <button class="read-more-btn">Read more &gt;&gt;</button> -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Dedicated Teams Section -->
+<section id="teams" class="teams-section">
+  <div class="container">
+    <h2><span class="orange">Meet Our </span><span class="blue">Dedicated Teams</span></h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/sisay Negash short.jpg" alt="Team Member 1">
+        <h3>Sisay Negash</h3>
+        <p><span class="blue">Software</span> <span  class="orange">Architect</span></p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sisaynegashmengistu" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SisayNegashMengistu" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:ctrlasoft@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+251914072437" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="images/chalachew mulu.jpeg" alt="Team Member 2">
+        <h3>Chalachew Mulu</h3>
+        <p><span class="blue">Frontend</span> <span class="orange">Developer</span></p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/chalachewm" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/chalachew-mulu" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:chalachewmulu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+251946098413" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="images/misge-desta.jpeg" alt="Team Member 3">
+        <h3>Misge Desta</h3>
+        <p><span class="blue">Backend Developer</span><span class="orange"> & Project Manager</span></p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/msge-desta-854343131/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/msge" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:misge711@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+251931832112" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="images/seyifu tadesse.png" alt="Team Member 4">
+        <h3>Seyifu Tadesse</h3>
+        <p><span class="blue">DevOps</span> <span class="orange">Engineer</span></p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/seifu-tadesse-718b71270" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/S12-Xdev" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:seifu_tadesse@mkau.edu.et" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+251924921828" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="images/eshete-gashew.jpeg" alt="Team Member 5">
+        <h3>Eshetie Gashew</h3>
+        <p><span class="blue">Full Stack</span> <span class="orange">Developer</span></p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/eshetie-gashaw-7a3939162" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/Eshetiegashaw" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:eshetie.216@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+251965578302" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Announcement Section -->
+<section id="announcements" class="announcement-section" style="padding: 3rem 0; background: #f9f9f9;">
+  <div class="container" style="max-width: 1200px; margin: auto;">
+    <h2 class="section-title" style="text-align: center; font-size: 2rem; margin-bottom: 2rem;"> Latest Announcements</h2>
+
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+
+      <!-- Card Template (Repeat for Each Announcement) -->
+      <!-- Card 1 -->
+      <div class="evaluation-card" style="position: relative; width: 330px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-start;">
+    <img src="images/photo_5809899843412412156_y.jpg" alt="Evaluation System" style="width: 100%; height: 180px; object-fit: cover;">
+    
+    <!-- Date tag -->
+    <div style="position: absolute; bottom: 10px; left: 10px; background-color: #4caf50; color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+        📅 August 6, 2025
+    </div>
+
+    <!-- Content section -->
+    <div style="padding: 1rem; flex-grow: 1;">
+        <h3 style="margin: 0; font-size: 1.2rem; color: #333;">Evaluation System</h3>
+        <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+            Our team has developed a robust evaluation system to assess performance, generate reports, and provide actionable insights for continuous improvement.
+        </p>
+    </div>
+<br/><br/>
+    <!-- Button at right bottom corner -->
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <a href="#" style="display: inline-block; padding: 0.5rem 1rem; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9rem;">
+            Learn More
+        </a>
+    </div>
+</div>
+
+
+<!-- Staff Profiles Card -->
+<div class="system-card" style="position: relative; width: 330px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; margin: 1rem;">
+    <img src="images/evaluation system.png" alt="Staff Profiles" style="width: 100%; height: 180px; object-fit: cover;">
+
+    <div style="padding: 1rem;">
+        <h3 style="margin: 0; font-size: 1.2rem; color: #333;">Staff Profiles</h3>
+        <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+            A centralized system to manage employee profiles, qualifications, and work history for easy access and updates.
+        </p>
+    </div>
+
+    <!-- Bottom Left Date -->
+    <div style="position: absolute; bottom: 10px; left: 10px; background-color: #4caf50;  color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+        📅 August 6, 2025
+    </div>
+
+    <!-- Bottom Right Button -->
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <a href="#" style="display: inline-block; padding: 0.5rem 1rem; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9rem;">
+            Learn More
+        </a>
+    </div>
+</div>
+
+<!-- Clearance System Card -->
+<div class="system-card" style="position: relative; width: 330px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; margin: 1rem;">
+    <img src="images/photo_5809899843412412157_y.jpg" alt="Clearance System" style="width: 100%; height: 180px; object-fit: cover;">
+
+    <div style="padding: 1rem;">
+        <h3 style="margin: 0; font-size: 1.2rem; color: #333;">Clearance System</h3>
+        <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+            A streamlined platform to manage clearance requests, approvals, and tracking for efficient institutional processes.
+        </p>
+    </div>
+
+    <!-- Bottom Left Date -->
+    <div style="position: absolute; bottom: 10px; left: 10px; background-color: #4caf50; color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+        📅 August 6, 2025
+    </div>
+
+     <!-- Bottom Right Button -->
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <a href="#" style="display: inline-block; padding: 0.5rem 1rem; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9rem;">
+            Learn More
+        </a>
+    </div>
+
+
+    </div>
+</section>
+<!-- end of announcements -->
+
+
+<!-- Video Section -->
+<section id="videos" class="video-section">
+  <div class="container">
+    <h2 class="section-title">📺 Latest Videos</h2>
+
+    <div class="video-grid">
+      <!-- Video 1 -->
+     <!-- Video 2 -->
+<div class="video-card">
+  <video src="images/allinone.mp4" autoplay loop muted playsinline></video>
+  <p class="video-title">Visit More</p>
+</div>
+      <!-- Video 2 -->
+
+<div class="video-card">
+  <video src="images/Beige Blue Red Yellow Simple English Patterns of Development in Writing Presentation (1).mp4" autoplay loop muted playsinline></video>
+  <p class="video-title">Evaluation System</p>
+</div>
+    <!-- Video 3 -->
+<div class="video-card">
+  <video src="images/ice_video_20250805-215525.webm" autoplay loop muted playsinline></video>
+  <p class="video-title">Evaluation System</p>
+</div>
+  
+
+
+    <div class="more-btn-container">
+      <a href="#" class="see-more-btn">See More Videos</a>
+    </div>
+  </div>
+</section>
+
+ <!-- Testimonials Section -->
+<section id="testimonials" class="testimonial-section">
+  <div class="container">
+    <h2 class="section-title">💬 Client Testimonials</h2>
+
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card">
+      <img src="images/esubalew a.jpeg" alt="Esubalew Alemneh" class="testimonial-photo">
+      <div class="testimonial-info">
+        <p class="testimonial-text">" I have worked with this team for over five years as their lecturer and project collaborator. Their technical expertise, professionalism, and dedication to delivering high-quality software solutions are truly commendable."</p>
+        <h4 class="testimonial-name">Esubalew Alemneh</h4>
+        <span class="testimonial-title">ICT4D Research Center, Bahir Dar Institute of Technology, Bahir Dar University</span>
+        <div class="testimonial-icons">
+          <a href="https://github.com/dryared" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/esubalew-alemneh-3b2a93105" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:esubalew@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+        <!-- Testimonial 2 -->
+ <div class="testimonial-card">
+      <img src="images/images.png" alt="Dr.. T." class="testimonial-photo">
+      <div class="testimonial-info">
+        <p class="testimonial-text">"Eagle Tech transformed our clearance process. It's now faster, more secure, and fully digital!"</p>
+        <h4 class="testimonial-name">Dr....</h4>
+        <span class="testimonial-title">University ICT Director</span>
+        <div class="testimonial-icons">
+          <a href="https://github.com/dryared" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/dryared" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:dryared@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card">
+      <img src="images/third test.png" alt="Dr " class="testimonial-photo">
+      <div class="testimonial-info">
+        <p class="testimonial-text">"Their AI solutions for healthcare are game-changing. The insights we gain are invaluable."</p>
+        <h4 class="testimonial-name">Dr.... .</h4>
+        <span class="testimonial-title">OB/GYN Specialist</span>
+        <div class="testimonial-icons">
+          <a href="https://github.com/drsarag" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/drsarag" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:drsarag@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Contact Us Section -->
+ <!-- Contact Us Section -->
+<section id="contacts" class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email address" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+<!-- end of contacts -->
+<!-- new about -->
+<section id="about" class="about newid-section">
+  <main class="container">
+    <section class="about">
+      <h2 style="color: orange;"> About Eagle Tech Solution</h2>
+      <p>
+        <span class="highlight">Eagle Tech </span> is a dynamic software company established by five passionate software engineers. Founded just a month ago, the company is committed to creating impactful software solutions tailored to local and global markets.
+      </p>
+      <p>
+        Unlike traditional open-source organizations, Eagle Tech Solution operates as a for-profit enterprise with a mission to innovate, compete, and provide value through high-quality tech products and services.
+      </p>
+      <p>The company's core objectives include:</p>
+      <ul>
+        <li>
+          Designing and selling competitive digital solutions across various domains of software development.
+        </li>
+        <li>
+          Delivering training programs to help bridge the technology skills gap across Ethiopia.
+        </li>
+        <li>
+          Promoting digital literacy and reducing technology-related illiteracy in underserved communities.
+        </li>
+        <li>
+          Supporting and accelerating Ethiopia's journey toward digital transformation.
+        </li>
+      </ul>
+    </section>
+
+    <section class="corporate-members">
+      <h2>Our Partners & Supporters</h2>
+      <p>
+        Eagle Tech Solution continues to grow through the support of its clients, strategic partners, and organizations that believe in the power of innovation and technology. Learn more about our <a href="#">supporters and collaborations</a>.
+      </p>
+    </section>
+  </main>
+
+  <aside class="sidebar">
+    <section>
+      <h3 class="orange">Support Our Mission</h3>
+      <p>
+         You can support Eagle Tech Solution by partnering with us, purchasing our products, or inviting us to collaborate on projects that aim to uplift technology in Ethiopia and beyond. 
+        <a href="#">Connect with us today!</a>
+      </p>
+    </section>
+
+    <section>
+      <h3 class="orange">Quick Links</h3>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Company Records</a></li>
+        <li><a href="#">Contact Eagle Tech</a></li>
+        <li><a href="#">Training & Workshops</a></li>
+        <li><a href="#">Digital Ethiopia Initiatives</a></li>
+      </ul>
+    </section>
+  </aside>
+</section>
+
+
+
+<!-- middle-eclips dark color styles -->
+        <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
+        </svg>
+      </div>
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-column">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#teams">Our Team</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#location">Location & Address</a></li>
+        <li><a href="#help">Help & Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#announcements">Products</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <ul>
+        <li>Email: info@eagletechsolution.com</li>
+        <li>Phone: +251 912 345 678</li>
+        <li>Address: Bahir Dar, Ethiopia</li>
+        <li><a href="#contacts">Contact Form</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+       <div class="testimonial-icons">
+          <a href="https://github.com/sisaynegashmengistu" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:eagletechsolution16@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Eagle Tech Solution. All rights reserved.</p>
+  </div>
+
+  <!-- Move Up Button -->
+  <a href="#home" class="move-up-button" id="moveUpBtn" title="Back to top">&#8679;</a>
+<!-- Popup Menu -->
+<!-- Popup Menu -->
+<div id="popupMenu" class="popup-menu">
+  <a href="#home" class="popup-tab">Home</a>
+  <!-- <a href="#about" class="popup-tab">About</a> -->
+  <a href="#services" class="popup-tab">Services</a>
+  <a href="#education-training-summary" class="popup-tab">Announcements</a>
+  <!-- <a href="#contacts" class="popup-tab">Contacts</a> -->
+  <!-- <a href="#education-training-summary" class="popup-tab">Education</a> -->
+  <a href="#teams" class="popup-tab">Teams</a>
+</div>
+
+</footer>
+</body>
+
+</html>
