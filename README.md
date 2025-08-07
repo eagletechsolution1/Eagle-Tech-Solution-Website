@@ -10,7 +10,7 @@
 ![Announcement Page](img/announcement.png)
 
 ### 👥 Members Page
-![Members Page](img/members.png)
+![Members Page](img/team.png)
 
 ### ❓ Help Page
 ![Help Page](img/help.png)
