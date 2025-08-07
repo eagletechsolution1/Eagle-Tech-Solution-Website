@@ -22,9 +22,9 @@
       theme: {
         extend: {
           colors: {
-            primary: '#1E40AF',
-            secondary: '#F59E0B',
-            accent: '#3B82F6',
+            primary: '#042354',       /* eagle-dark blue */
+            secondary: '#3e64a4',     /* medium blue */
+            accent: '#e2b007',        /* eagle-beak gold */
             dark: '#1F2937',
             light: '#F3F4F6',
           },
@@ -60,9 +60,9 @@
   
   <style>
     :root {
-      --primary: #1E40AF;
-      --secondary: #F59E0B;
-      --accent: #3B82F6;
+      --primary: #042354;         /* eagle-dark blue */
+      --secondary: #3e64a4;       /* medium blue */
+      --accent: #e2b007;          /* eagle-beak gold */
       --dark: #1F2937;
       --light: #F3F4F6;
     }
@@ -84,17 +84,12 @@
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #1E3A8A;
-    }
-    
-    /* Video placeholder styling */
-    video {
-      background: linear-gradient(135deg, #1E40AF, #3B82F6);
+      background: var(--secondary);
     }
     
     /* Gradient text */
     .gradient-text {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -104,7 +99,7 @@
     .section-divider {
       width: 100%;
       height: 80px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231e40af' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center/cover;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23042354' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center/cover;
     }
     
     /* Responsive adjustments */
@@ -128,18 +123,74 @@
         display: block;
       }
     }
+    
+    /* Interactive button effects */
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(4, 35, 84, 0.1);
+    }
+    .btn-primary:hover {
+      background: #031a3f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(4, 35, 84, 0.15);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+    
+    .btn-accent {
+      background: var(--accent);
+      color: var(--primary);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(226, 176, 7, 0.1);
+    }
+    .btn-accent:hover {
+      background: #d1a206;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(226, 176, 7, 0.15);
+    }
+    
+    /* Card hover effects */
+    .service-card {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(4, 35, 84, 0.05);
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(4, 35, 84, 0.1);
+    }
+    
+    /* Navigation underline animation */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
   </style>
 </head>
 
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
-  <!-- Header/Navigation -->
-  <header class="header fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+  <!-- White Navigation Bar -->
+  <header class="header fixed w-full bg-white shadow-sm z-50 transition-all duration-300">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
       <div class="logo">
         <a href="#home" class="flex items-center">
           <img src="images/Logo White Color(3)-cropped.svg" alt="Eagle Tech Solution Logo" class="h-12">
-          <span class="ml-2 text-xl font-bold hidden md:block gradient-text">Eagle Tech Solution</span>
+          <span class="ml-2 text-xl font-bold hidden md:block" style="color: var(--primary);">Eagle Tech Solution</span>
         </a>
       </div>
       
@@ -154,16 +205,16 @@
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:block">
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="nav-link hover:text-primary transition-colors">Home</a></li>
-          <li><a href="#about" class="nav-link hover:text-primary transition-colors">About</a></li>
-          <li><a href="#services" class="nav-link hover:text-primary transition-colors">Services</a></li>
-          <li><a href="#education" class="nav-link hover:text-primary transition-colors">Education</a></li>
-          <li><a href="#teams" class="nav-link hover:text-primary transition-colors">Teams</a></li>
-          <li><a href="#announcements" class="nav-link hover:text-primary transition-colors">News</a></li>
-          <li><a href="#contacts" class="nav-link hover:text-primary transition-colors">Contacts</a></li>
-          <li class="relative group">
-            <button class="flex items-center nav-link hover:text-primary transition-colors">
+        <ul class="flex space-x-8">
+          <li><a href="#home" class="nav-link text-gray-800 hover:text-primary transition-colors">Home</a></li>
+          <li><a href="#about" class="nav-link text-gray-800 hover:text-primary transition-colors">About</a></li>
+          <li><a href="#services" class="nav-link text-gray-800 hover:text-primary transition-colors">Services</a></li>
+          <li><a href="#education" class="nav-link text-gray-800 hover:text-primary transition-colors">Education</a></li>
+          <li><a href="#teams" class="nav-link text-gray-800 hover:text-primary transition-colors">Teams</a></li>
+          <li><a href="#announcements" class="nav-link text-gray-800 hover:text-primary transition-colors">News</a></li>
+          <li><a href="#contacts" class="nav-link text-gray-800 hover:text-primary transition-colors">Contacts</a></li>
+          <li class="relative group ml-4">
+            <button class="flex items-center text-gray-800 hover:text-primary transition-colors">
               <span class="mr-1">🌐</span> EN
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -188,17 +239,17 @@
         </button>
       </div>
       <ul class="p-4 space-y-4">
-        <li><a href="#home" class="block py-2 hover:text-primary transition-colors">Home</a></li>
-        <li><a href="#about" class="block py-2 hover:text-primary transition-colors">About</a></li>
-        <li><a href="#services" class="block py-2 hover:text-primary transition-colors">Services</a></li>
-        <li><a href="#education" class="block py-2 hover:text-primary transition-colors">Education</a></li>
-        <li><a href="#teams" class="block py-2 hover:text-primary transition-colors">Teams</a></li>
-        <li><a href="#announcements" class="block py-2 hover:text-primary transition-colors">News</a></li>
-        <li><a href="#contacts" class="block py-2 hover:text-primary transition-colors">Contacts</a></li>
+        <li><a href="#home" class="block py-2 text-gray-800 hover:text-primary transition-colors">Home</a></li>
+        <li><a href="#about" class="block py-2 text-gray-800 hover:text-primary transition-colors">About</a></li>
+        <li><a href="#services" class="block py-2 text-gray-800 hover:text-primary transition-colors">Services</a></li>
+        <li><a href="#education" class="block py-2 text-gray-800 hover:text-primary transition-colors">Education</a></li>
+        <li><a href="#teams" class="block py-2 text-gray-800 hover:text-primary transition-colors">Teams</a></li>
+        <li><a href="#announcements" class="block py-2 text-gray-800 hover:text-primary transition-colors">News</a></li>
+        <li><a href="#contacts" class="block py-2 text-gray-800 hover:text-primary transition-colors">Contacts</a></li>
         <li class="pt-4 border-t border-gray-200">
           <div class="flex space-x-4">
             <button class="px-3 py-1 bg-primary text-white rounded" onclick="setLanguage('EN')">EN</button>
-            <button class="px-3 py-1 bg-secondary text-white rounded" onclick="setLanguage('AM')">AM</button>
+            <button class="px-3 py-1 bg-accent text-primary font-medium rounded" onclick="setLanguage('AM')">AM</button>
           </div>
         </li>
       </ul>
@@ -208,23 +259,23 @@
   <!-- Hero Section -->
   <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
     <div class="absolute inset-0 overflow-hidden z-0">
-      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-accent opacity-10"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-secondary opacity-10"></div>
       <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary opacity-10 blur-3xl"></div>
-      <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary opacity-10 blur-3xl"></div>
+      <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-accent opacity-10 blur-3xl"></div>
       <div class="eagle absolute text-4xl top-1/3 left-0 animate-eagle-fly">🦅</div>
     </div>
     
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          <span class="gradient-text">Innovative Tech Solutions</span> for the Digital Age
+          <span class="gradient-text">Innovative Tech Solutions</span> <br>Powered by Excellence
         </h1>
         <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Eagle Tech Solution delivers cutting-edge software development, AI solutions, and cybersecurity services to help your business thrive in the digital landscape.
+          Eagle Tech Solution delivers cutting-edge software development, AI solutions, and cybersecurity services with our signature eagle-dark blue precision and golden excellence.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#services" class="px-8 py-3 bg-primary hover:bg-blue-800 text-white font-medium rounded-lg transition-colors shadow-lg">
-            Our Services
+          <a href="#services" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg">
+            Explore Services
           </a>
           <a href="#contacts" class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-medium rounded-lg transition-colors shadow-lg border border-primary">
             Contact Us
@@ -233,44 +284,44 @@
       </div>
       
       <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
           <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-cloud text-2xl text-primary"></i>
+            <i class="fas fa-cloud text-2xl" style="color: var(--primary);"></i>
           </div>
-          <h3 class="font-semibold text-lg mb-2">Cloud Solutions</h3>
+          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cloud Solutions</h3>
           <p class="text-gray-600 text-sm">Scalable and secure cloud infrastructure</p>
         </div>
         
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-          <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-robot text-2xl text-secondary"></i>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
+          <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-robot text-2xl" style="color: var(--accent);"></i>
           </div>
-          <h3 class="font-semibold text-lg mb-2">AI & Automation</h3>
+          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">AI & Automation</h3>
           <p class="text-gray-600 text-sm">Smart solutions for business growth</p>
         </div>
         
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-          <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-shield-alt text-2xl" style="color: var(--secondary);"></i>
           </div>
-          <h3 class="font-semibold text-lg mb-2">Cybersecurity</h3>
+          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cybersecurity</h3>
           <p class="text-gray-600 text-sm">Protecting your digital assets</p>
         </div>
         
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-          <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-graduation-cap text-2xl text-purple-600"></i>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
+          <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-graduation-cap text-2xl" style="color: var(--accent);"></i>
           </div>
-          <h3 class="font-semibold text-lg mb-2">Training</h3>
+          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Training</h3>
           <p class="text-gray-600 text-sm">Skill development programs</p>
         </div>
       </div>
     </div>
     
     <!-- Animated floating elements -->
-    <div class="absolute bottom-10 left-10 w-8 h-8 rounded-full bg-primary opacity-20 animate-float"></div>
-    <div class="absolute top-20 right-20 w-12 h-12 rounded-full bg-secondary opacity-20 animate-float animation-delay-2000"></div>
-    <div class="absolute top-1/3 right-1/4 w-10 h-10 rounded-full bg-accent opacity-20 animate-float animation-delay-3000"></div>
+    <div class="absolute bottom-10 left-10 w-8 h-8 rounded-full" style="background-color: var(--primary); opacity: 0.2;" class="animate-float"></div>
+    <div class="absolute top-20 right-20 w-12 h-12 rounded-full" style="background-color: var(--accent); opacity: 0.2;" class="animate-float animation-delay-2000"></div>
+    <div class="absolute top-1/3 right-1/4 w-10 h-10 rounded-full" style="background-color: var(--secondary); opacity: 0.2;" class="animate-float animation-delay-3000"></div>
   </section>
 
   <!-- Services Section -->
@@ -280,13 +331,13 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Services</span></h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          We offer comprehensive technology solutions tailored to your business needs
+          Comprehensive technology solutions with the precision of our eagle-dark blue and the excellence of gold
         </p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Service Card 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Purple Modern Animated Computer Science Presentation.mp4" type="video/mp4">
@@ -297,11 +348,11 @@
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Custom Software Development</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Custom Software Development</h3>
             <p class="text-gray-600 mb-4">
-              Scalable applications and platforms built with modern technologies and agile methodologies to drive your business forward.
+              Scalable applications built with modern technologies and agile methodologies to drive your business forward.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -311,22 +362,22 @@
         </div>
         
         <!-- Service Card 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/cybersecurity.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Security</span>
+              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Security</span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Cybersecurity Services</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Cybersecurity Services</h3>
             <p class="text-gray-600 mb-4">
-              Comprehensive security solutions including threat modeling, risk assessment, and secure development practices to protect your assets.
+              Comprehensive security solutions including threat modeling, risk assessment, and secure development.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -336,22 +387,22 @@
         </div>
         
         <!-- Service Card 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Illustrative Ai Event Mobile UI Prototype.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full">AI</span>
+              <span class="bg-accent text-primary text-xs font-semibold px-3 py-1 rounded-full">AI</span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">AI & Automation</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">AI & Automation</h3>
             <p class="text-gray-600 mb-4">
-              Transform your business with custom AI models, machine learning solutions, and robotic process automation to enhance efficiency.
+              Transform your business with custom AI models and robotic process automation.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -361,22 +412,22 @@
         </div>
         
         <!-- Service Card 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Blue Purple Modern Animated Computer Science4 Presentationpage4.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Training</span>
+              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Training</span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Technical Training Programs</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Technical Training</h3>
             <p class="text-gray-600 mb-4">
-              Customized training in AI, cloud computing, data science, and cybersecurity to upskill your team and stay competitive.
+              Customized training in AI, cloud computing, data science, and cybersecurity.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -386,22 +437,22 @@
         </div>
         
         <!-- Service Card 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/allinone.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Web</span>
+              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Web</span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Enterprise Web Applications</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Enterprise Web Apps</h3>
             <p class="text-gray-600 mb-4">
-              Full-stack development of scalable web platforms using Django, Node.js, React, and modern API architectures.
+              Full-stack development of scalable web platforms using modern technologies.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -411,22 +462,22 @@
         </div>
         
         <!-- Service Card 6 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Orange and Purple Modern Illustration Web Development Instagram Post.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Consulting</span>
+              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Consulting</span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">IT Consulting</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">IT Consulting</h3>
             <p class="text-gray-600 mb-4">
-              Strategic technology consulting to align your IT infrastructure with business goals and digital transformation initiatives.
+              Strategic technology consulting to align IT with business goals.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Learn more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -437,7 +488,7 @@
       </div>
       
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#contacts" class="inline-flex items-center px-8 py-3 bg-primary hover:bg-blue-800 text-white font-medium rounded-lg transition-colors shadow-lg">
+        <a href="#contacts" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg inline-flex items-center">
           Get a Free Consultation
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -453,35 +504,35 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Education & <span class="gradient-text">Training</span></h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          Empowering individuals and organizations through technology education
+          Empowering individuals and organizations through technology education with our golden standard of excellence
         </p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Education Card 1 -->
-        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow" data-aos="fade-up">
-          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-book-open text-2xl text-primary"></i>
+        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-book-open text-2xl" style="color: var(--primary);"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-center">Educational Program Development</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Educational Program Development</h3>
           <p class="text-gray-600 mb-6">
-            We design tailored curricula, train teachers, and build competency-based frameworks aligned with ministry standards to enhance classroom teaching quality.
+            We design tailored curricula, train teachers, and build competency-based frameworks aligned with ministry standards.
           </p>
           <ul class="space-y-2 mb-6">
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Custom curriculum design</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Teacher training programs</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Competency framework development</span>
             </li>
           </ul>
-          <a href="#" class="text-primary font-medium hover:text-blue-800 transition-colors flex items-center justify-center">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
             Learn more
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -490,29 +541,29 @@
         </div>
         
         <!-- Education Card 2 -->
-        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-laptop-code text-2xl text-purple-600"></i>
+        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-laptop-code text-2xl" style="color: var(--primary);"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-center">Digital & E-Learning Solutions</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Digital & E-Learning</h3>
           <p class="text-gray-600 mb-6">
-            Empowering learning through LMS platforms, mobile apps, smart classrooms, and AI-based tools that foster interactive and flexible digital education.
+            Empowering learning through LMS platforms, mobile apps, smart classrooms, and AI-based tools.
           </p>
           <ul class="space-y-2 mb-6">
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Learning Management Systems</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Educational mobile apps</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Smart classroom solutions</span>
             </li>
           </ul>
-          <a href="#" class="text-primary font-medium hover:text-blue-800 transition-colors flex items-center justify-center">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
             Learn more
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -521,29 +572,29 @@
         </div>
         
         <!-- Education Card 3 -->
-        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-user-graduate text-2xl text-secondary"></i>
+        <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition-all service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-user-graduate text-2xl" style="color: var(--primary);"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-center">Skills & Workforce Development</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Skills Development</h3>
           <p class="text-gray-600 mb-6">
-            Our vocational programs address skill gaps and provide industry-relevant certifications that enable learners to thrive in dynamic job markets.
+            Our vocational programs address skill gaps and provide industry-relevant certifications.
           </p>
           <ul class="space-y-2 mb-6">
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Vocational training programs</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Industry certifications</span>
             </li>
             <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+              <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Career development workshops</span>
             </li>
           </ul>
-          <a href="#" class="text-primary font-medium hover:text-blue-800 transition-colors flex items-center justify-center">
+          <a href="#" class="font-medium flex items-center justify-center transition-colors" style="color: var(--secondary);">
             Learn more
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -566,17 +617,17 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
         <!-- Team Member 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow text-center" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/sisay Negash short.jpg" alt="Sisay Negash" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-1">Sisay Negash</h3>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Sisay Negash</h3>
             <p class="text-gray-600 mb-4">Software Architect</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/sisaynegashmengistu" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/sisaynegashmengistu" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/SisayNegashMengistu" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
@@ -593,17 +644,17 @@
         </div>
         
         <!-- Team Member 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/chalachew mulu.jpeg" alt="Chalachew Mulu" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-1">Chalachew Mulu</h3>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Chalachew Mulu</h3>
             <p class="text-gray-600 mb-4">Frontend Developer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/chalachewm" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/chalachewm" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/chalachew-mulu" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
@@ -620,17 +671,17 @@
         </div>
         
         <!-- Team Member 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/misge-desta.jpeg" alt="Misge Desta" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-1">Misge Desta</h3>
-            <p class="text-gray-600 mb-4">Backend Developer & Project Manager</p>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Misge Desta</h3>
+            <p class="text-gray-600 mb-4">Backend Developer & PM</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/msge-desta-854343131/" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/msge-desta-854343131/" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/msge" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
@@ -647,17 +698,17 @@
         </div>
         
         <!-- Team Member 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow text-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="300">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/seyifu tadesse.png" alt="Seyifu Tadesse" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-1">Seyifu Tadesse</h3>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Seyifu Tadesse</h3>
             <p class="text-gray-600 mb-4">DevOps Engineer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/seifu-tadesse-718b71270" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/seifu-tadesse-718b71270" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/S12-Xdev" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
@@ -674,17 +725,17 @@
         </div>
         
         <!-- Team Member 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all text-center service-card" data-aos="fade-up" data-aos-delay="400">
           <div class="relative pt-8 px-8">
             <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
               <img src="images/eshete-gashew.jpeg" alt="Eshetie Gashew" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-1">Eshetie Gashew</h3>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--primary);">Eshetie Gashew</h3>
             <p class="text-gray-600 mb-4">Full Stack Developer</p>
             <div class="flex justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/eshetie-gashaw-7a3939162" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/eshetie-gashaw-7a3939162" target="_blank" class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" style="color: var(--primary);">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://github.com/Eshetiegashaw" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors">
@@ -715,23 +766,23 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Announcement Card 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <img src="images/photo_5809899843412412156_y.jpg" alt="Evaluation System" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-primary text-xs font-semibold px-3 py-1 rounded-full">New Release</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">New Release</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Evaluation System Launch</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Evaluation System Launch</h3>
             <p class="text-gray-600 mb-4">
-              Our team has developed a robust evaluation system to assess performance, generate reports, and provide actionable insights for continuous improvement.
+              Our team has developed a robust evaluation system to assess performance, generate reports, and provide actionable insights.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -741,23 +792,23 @@
         </div>
         
         <!-- Announcement Card 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <img src="images/evaluation system.png" alt="Staff Profiles" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-primary text-xs font-semibold px-3 py-1 rounded-full">Update</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">Update</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Staff Profile Management</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Staff Profile Management</h3>
             <p class="text-gray-600 mb-4">
-              A centralized system to manage employee profiles, qualifications, and work history for easy access and updates across your organization.
+              A centralized system to manage employee profiles, qualifications, and work history for easy access and updates.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -767,23 +818,23 @@
         </div>
         
         <!-- Announcement Card 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <img src="images/photo_5809899843412412157_y.jpg" alt="Clearance System" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4">
-              <span class="bg-white text-primary text-xs font-semibold px-3 py-1 rounded-full">Feature</span>
+              <span class="bg-white text-xs font-semibold px-3 py-1 rounded-full" style="color: var(--primary); border: 1px solid var(--primary);">Feature</span>
             </div>
             <div class="absolute top-4 right-4 bg-white text-gray-700 text-xs font-medium px-2 py-1 rounded">
               <i class="far fa-calendar-alt mr-1"></i> Aug 6, 2025
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-3">Digital Clearance System</h3>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Digital Clearance System</h3>
             <p class="text-gray-600 mb-4">
-              A streamlined platform to manage clearance requests, approvals, and tracking for efficient institutional processes and employee transitions.
+              A streamlined platform to manage clearance requests, approvals, and tracking for efficient institutional processes.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-800 transition-colors">
+            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
               Read more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -794,7 +845,7 @@
       </div>
       
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#" class="inline-flex items-center px-6 py-2 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
+        <a href="#" class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors" style="border-color: var(--primary); color: var(--primary);">
           View All Announcements
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -816,19 +867,19 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Video 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/allinone.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
+              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-lg font-bold mb-2">All-in-One Platform Overview</h3>
+            <h3 class="text-lg font-bold mb-2" style="color: var(--primary);">All-in-One Platform</h3>
             <p class="text-gray-600 text-sm">
               A comprehensive look at our integrated solution for educational institutions
             </p>
@@ -836,19 +887,19 @@
         </div>
         
         <!-- Video 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/Beige Blue Red Yellow Simple English Patterns of Development in Writing Presentation (1).mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
+              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-lg font-bold mb-2">Evaluation System Demo</h3>
+            <h3 class="text-lg font-bold mb-2" style="color: var(--primary);">Evaluation System Demo</h3>
             <p class="text-gray-600 text-sm">
               See how our evaluation system streamlines performance assessment
             </p>
@@ -856,19 +907,19 @@
         </div>
         
         <!-- Video 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-48 overflow-hidden">
             <video class="w-full h-full object-cover" autoplay muted loop playsinline>
               <source src="images/ice_video_20250805-215525.webm" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
-              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
+              <button class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition-colors" style="color: var(--primary);">
                 <i class="fas fa-play"></i>
               </button>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-lg font-bold mb-2">System Features Walkthrough</h3>
+            <h3 class="text-lg font-bold mb-2" style="color: var(--primary);">System Features Walkthrough</h3>
             <p class="text-gray-600 text-sm">
               Detailed demonstration of key features and functionalities
             </p>
@@ -877,7 +928,7 @@
       </div>
       
       <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#" class="inline-flex items-center px-6 py-2 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
+        <a href="#" class="inline-flex items-center px-6 py-2 border font-medium rounded-lg hover:bg-gray-50 transition-colors" style="border-color: var(--primary); color: var(--primary);">
           View More Videos
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -905,14 +956,14 @@
               <img src="images/esubalew a.jpeg" alt="Esubalew Alemneh" class="w-full h-full object-cover">
             </div>
             <div>
-              <h4 class="font-bold">Esubalew Alemneh</h4>
+              <h4 class="font-bold" style="color: var(--primary);">Esubalew Alemneh</h4>
               <p class="text-gray-600 text-sm">ICT4D Research Center, Bahir Dar Institute of Technology</p>
               <div class="flex mt-2">
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
               </div>
             </div>
           </div>
@@ -939,14 +990,14 @@
               <img src="images/images.png" alt="University ICT Director" class="w-full h-full object-cover">
             </div>
             <div>
-              <h4 class="font-bold">University ICT Director</h4>
+              <h4 class="font-bold" style="color: var(--primary);">University ICT Director</h4>
               <p class="text-gray-600 text-sm">Higher Education Institution</p>
               <div class="flex mt-2">
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
               </div>
             </div>
           </div>
@@ -973,19 +1024,19 @@
               <img src="images/third test.png" alt="Healthcare Professional" class="w-full h-full object-cover">
             </div>
             <div>
-              <h4 class="font-bold">Healthcare Professional</h4>
+              <h4 class="font-bold" style="color: var(--primary);">Healthcare Professional</h4>
               <p class="text-gray-600 text-sm">Medical Institution</p>
               <div class="flex mt-2">
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star-half-alt" style="color: var(--accent);"></i>
               </div>
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "Their AI solutions for healthcare are game-changing. The insights we gain from their predictive analytics tools have helped us improve patient outcomes while optimizing our resources. The team is responsive and truly understands our domain."
+            "Their AI solutions for healthcare are game-changing. The insights we gain from their predictive analytics tools have helped us improve patient outcomes while optimizing our resources."
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-500 hover:text-gray-700 transition-colors">
@@ -1007,19 +1058,19 @@
               <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Business Owner" class="w-full h-full object-cover">
             </div>
             <div>
-              <h4 class="font-bold">Business Owner</h4>
+              <h4 class="font-bold" style="color: var(--primary);">Business Owner</h4>
               <p class="text-gray-600 text-sm">Local Enterprise</p>
               <div class="flex mt-2">
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="far fa-star text-yellow-400"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="fas fa-star" style="color: var(--accent);"></i>
+                <i class="far fa-star" style="color: var(--accent);"></i>
               </div>
             </div>
           </div>
           <p class="text-gray-700 italic mb-6">
-            "The custom inventory management system developed by Eagle Tech has revolutionized our operations. What impressed me most was their willingness to understand our unique business processes and adapt the solution accordingly."
+            "The custom inventory management system developed by Eagle Tech has revolutionized our operations. What impressed me most was their willingness to understand our unique business processes."
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-500 hover:text-gray-700 transition-colors">
@@ -1044,40 +1095,40 @@
         <div class="lg:w-2/3" data-aos="fade-right">
           <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Eagle Tech Solution</span></h2>
           <p class="text-gray-700 mb-6">
-            <span class="font-semibold text-primary">Eagle Tech Solution</span> is a dynamic software company established by five passionate software engineers with a vision to drive digital transformation in Ethiopia and beyond. Founded with a mission to innovate, compete, and provide value through high-quality tech products and services, we combine technical expertise with deep understanding of local market needs.
+            <span class="font-semibold" style="color: var(--primary);">Eagle Tech Solution</span> is a dynamic software company established by five passionate software engineers with a vision to drive digital transformation in Ethiopia and beyond. We combine technical expertise with deep understanding of local market needs.
           </p>
           
           <div class="mb-8">
-            <h3 class="text-xl font-bold mb-4 text-primary">Our Mission</h3>
+            <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Our Mission</h3>
             <p class="text-gray-700 mb-4">
               To deliver cutting-edge technology solutions that empower businesses, educational institutions, and government agencies to achieve their digital transformation goals while fostering local talent and expertise.
             </p>
           </div>
           
           <div class="mb-8">
-            <h3 class="text-xl font-bold mb-4 text-primary">Core Objectives</h3>
+            <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Core Objectives</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
                 <span>Design and sell competitive digital solutions across various domains of software development</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
                 <span>Deliver training programs to bridge the technology skills gap across Ethiopia</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
                 <span>Promote digital literacy and reduce technology-related illiteracy in underserved communities</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <i class="fas fa-check-circle mt-1 mr-3" style="color: var(--accent);"></i>
                 <span>Support and accelerate Ethiopia's journey toward comprehensive digital transformation</span>
               </li>
             </ul>
           </div>
           
-          <div class="bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
-            <h3 class="text-xl font-bold mb-3 text-primary">Our Approach</h3>
+          <div class="p-6 rounded-lg border-l-4" style="background-color: rgba(4, 35, 84, 0.05); border-color: var(--primary);">
+            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Our Approach</h3>
             <p class="text-gray-700">
               Unlike traditional open-source organizations, Eagle Tech Solution operates as a for-profit enterprise with a strong commitment to social impact. We believe sustainable technology solutions come from balancing innovation with practical business models that ensure long-term viability and continuous improvement.
             </p>
@@ -1086,46 +1137,46 @@
         
         <div class="lg:w-1/3" data-aos="fade-left">
           <div class="bg-white p-8 rounded-xl shadow-md sticky top-8">
-            <h3 class="text-xl font-bold mb-6 text-secondary">Quick Links</h3>
+            <h3 class="text-xl font-bold mb-6" style="color: var(--accent);">Quick Links</h3>
             <ul class="space-y-3">
               <li>
                 <a href="#services" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                  <i class="fas fa-chevron-right text-xs mr-3 text-secondary"></i>
+                  <i class="fas fa-chevron-right text-xs mr-3" style="color: var(--accent);"></i>
                   Our Services
                 </a>
               </li>
               <li>
                 <a href="#teams" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                  <i class="fas fa-chevron-right text-xs mr-3 text-secondary"></i>
+                  <i class="fas fa-chevron-right text-xs mr-3" style="color: var(--accent);"></i>
                   Meet Our Team
                 </a>
               </li>
               <li>
                 <a href="#education" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                  <i class="fas fa-chevron-right text-xs mr-3 text-secondary"></i>
+                  <i class="fas fa-chevron-right text-xs mr-3" style="color: var(--accent);"></i>
                   Training Programs
                 </a>
               </li>
               <li>
                 <a href="#testimonials" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                  <i class="fas fa-chevron-right text-xs mr-3 text-secondary"></i>
+                  <i class="fas fa-chevron-right text-xs mr-3" style="color: var(--accent);"></i>
                   Client Testimonials
                 </a>
               </li>
               <li>
                 <a href="#contacts" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                  <i class="fas fa-chevron-right text-xs mr-3 text-secondary"></i>
+                  <i class="fas fa-chevron-right text-xs mr-3" style="color: var(--accent);"></i>
                   Contact Us
                 </a>
               </li>
             </ul>
             
             <div class="mt-8 pt-6 border-t border-gray-200">
-              <h3 class="text-xl font-bold mb-4 text-secondary">Support Our Mission</h3>
+              <h3 class="text-xl font-bold mb-4" style="color: var(--accent);">Support Our Mission</h3>
               <p class="text-gray-700 mb-4">
                 You can support Eagle Tech Solution by partnering with us, purchasing our products, or inviting us to collaborate on projects that aim to uplift technology in Ethiopia and beyond.
               </p>
-              <a href="#contacts" class="inline-block px-6 py-2 bg-secondary hover:bg-yellow-600 text-white font-medium rounded-lg transition-colors">
+              <a href="#contacts" class="inline-block px-6 py-2 rounded-lg font-medium transition-colors btn-accent">
                 Get Involved
               </a>
             </div>
@@ -1136,10 +1187,10 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contacts" class="py-20 bg-primary text-white">
+  <section id="contacts" class="py-20 text-white" style="background-color: var(--primary);">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="text-secondary">Touch</span></h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span style="color: var(--accent);">Touch</span></h2>
         <p class="text-blue-100 max-w-2xl mx-auto">
           Have a project in mind or want to learn more about our services? Contact us today.
         </p>
@@ -1148,42 +1199,42 @@
       <div class="flex flex-col lg:flex-row gap-12">
         <div class="lg:w-1/2" data-aos="fade-right">
           <form class="bg-white rounded-xl shadow-lg p-8 text-gray-800">
-            <h3 class="text-2xl font-bold mb-6 text-primary">Send Us a Message</h3>
+            <h3 class="text-2xl font-bold mb-6" style="color: var(--primary);">Send Us a Message</h3>
             
             <div class="mb-6">
               <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-              <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your name">
+              <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Enter your name">
             </div>
             
             <div class="mb-6">
               <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-              <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email">
+              <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Enter your email">
             </div>
             
             <div class="mb-6">
               <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-              <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="What's this about?">
+              <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="What's this about?">
             </div>
             
             <div class="mb-6">
               <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-              <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your project or inquiry"></textarea>
+              <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent" style="focus:ring-color: var(--primary);" placeholder="Tell us about your project or inquiry"></textarea>
             </div>
             
-            <button type="submit" class="w-full py-3 bg-primary hover:bg-blue-800 text-white font-medium rounded-lg transition-colors shadow-lg">
+            <button type="submit" class="w-full py-3 btn-primary text-white font-medium rounded-lg shadow-lg">
               Send Message
             </button>
           </form>
         </div>
         
         <div class="lg:w-1/2" data-aos="fade-left">
-          <div class="bg-blue-900/30 rounded-xl p-8 h-full backdrop-blur-sm">
+          <div class="rounded-xl p-8 h-full" style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
             <h3 class="text-2xl font-bold mb-6 text-white">Contact Information</h3>
             
             <div class="space-y-6">
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
-                  <i class="fas fa-map-marker-alt text-secondary"></i>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                  <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Our Location</h4>
@@ -1192,8 +1243,8 @@
               </div>
               
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
-                  <i class="fas fa-envelope text-secondary"></i>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                  <i class="fas fa-envelope" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Email Us</h4>
@@ -1203,8 +1254,8 @@
               </div>
               
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
-                  <i class="fas fa-phone-alt text-secondary"></i>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                  <i class="fas fa-phone-alt" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Call Us</h4>
@@ -1214,8 +1265,8 @@
               </div>
               
               <div class="flex items-start">
-                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4 mt-1">
-                  <i class="fas fa-clock text-secondary"></i>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1" style="background-color: rgba(255, 255, 255, 0.2);">
+                  <i class="fas fa-clock" style="color: var(--accent);"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-white mb-1">Working Hours</h4>
@@ -1228,19 +1279,19 @@
             <div class="mt-8 pt-6 border-t border-blue-800">
               <h4 class="font-bold text-white mb-4">Follow Us</h4>
               <div class="flex space-x-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
+                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
+                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
+                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
+                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-telegram"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-white hover:bg-primary hover:text-white transition-colors">
+                <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-white transition-colors" style="background-color: rgba(255, 255, 255, 0.2);">
                   <i class="fab fa-github"></i>
                 </a>
               </div>
@@ -1252,7 +1303,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-gray-300 py-12">
+  <footer class="py-12" style="background-color: var(--primary); color: #cbd5e1;">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Column 1 -->
@@ -1265,16 +1316,16 @@
             Innovative technology solutions for the digital age. Empowering businesses and institutions through cutting-edge software, AI, and cybersecurity services.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="#" class="text-blue-200 hover:text-white transition-colors">
               <i class="fab fa-github"></i>
             </a>
           </div>
@@ -1311,15 +1362,15 @@
           <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
           <address class="not-italic">
             <div class="flex items-start mb-3">
-              <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+              <i class="fas fa-map-marker-alt mt-1 mr-3" style="color: var(--accent);"></i>
               <span>Bahir Dar, Ethiopia</span>
             </div>
             <div class="flex items-start mb-3">
-              <i class="fas fa-envelope text-secondary mt-1 mr-3"></i>
+              <i class="fas fa-envelope mt-1 mr-3" style="color: var(--accent);"></i>
               <span>info@eagletechsolution.com</span>
             </div>
             <div class="flex items-start mb-3">
-              <i class="fas fa-phone-alt text-secondary mt-1 mr-3"></i>
+              <i class="fas fa-phone-alt mt-1 mr-3" style="color: var(--accent);"></i>
               <span>+251 912 345 678</span>
             </div>
           </address>
@@ -1328,14 +1379,14 @@
           <p class="mb-3">Subscribe to our newsletter for updates</p>
           <form class="flex">
             <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
-            <button type="submit" class="bg-secondary hover:bg-yellow-600 text-white px-4 py-2 rounded-r-lg transition-colors">
+            <button type="submit" class="px-4 py-2 rounded-r-lg font-medium transition-colors" style="background-color: var(--accent); color: var(--primary);">
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
         </div>
       </div>
       
-      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" data-aos="fade-up">
+      <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" data-aos="fade-up">
         <p>&copy; 2025 Eagle Tech Solution. All rights reserved.</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
           <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
@@ -1346,7 +1397,7 @@
     </div>
     
     <!-- Back to top button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary hover:bg-blue-800 text-white rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible">
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible" style="background-color: var(--primary); color: var(--accent); border: 2px solid var(--accent);">
       <i class="fas fa-arrow-up"></i>
     </button>
   </footer>
