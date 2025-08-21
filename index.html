@@ -232,6 +232,170 @@
       width: 100%;
     }
   </style>
+  <!-- Add these new animations to your style tag -->
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    
+    .animation-delay-3000 {
+      animation-delay: 3s;
+    }
+    
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+    
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+    
+    /* Syntax highlighting colors */
+    .text-purple-400 { color: #c084fc; }
+    .text-blue-400 { color: #60a5fa; }
+    .text-yellow-400 { color: #facc15; }
+    .text-green-400 { color: #4ade80; }
+  </style>
+  <style>
+  /* 3D Code Matrix Effect */
+  .code-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-auto-rows: 30px;
+    gap: 10px;
+    padding: 20px;
+    perspective: 1000px;
+  }
+  
+  .code-matrix span {
+    display: block;
+    background: rgba(74, 222, 128, 0.05);
+    border: 1px solid rgba(74, 222, 128, 0.1);
+    border-radius: 4px;
+    animation: matrix-pulse 4s infinite ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  @keyframes matrix-pulse {
+    0%, 100% { opacity: 0.3; transform: translateZ(0); }
+    50% { opacity: 0.8; transform: translateZ(10px); }
+  }
+  
+  /* Code Sphere Animation */
+  .code-sphere {
+    transform-style: preserve-3d;
+    animation: sphere-rotate 30s infinite linear;
+  }
+  
+  .code-fragment {
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .code-fragment:hover {
+    transform: scale(1.2) translateZ(20px);
+    z-index: 10;
+  }
+  
+  @keyframes sphere-rotate {
+    0% { transform: rotateY(0) rotateX(10deg); }
+    100% { transform: rotateY(360deg) rotateX(10deg); }
+  }
+  
+  /* Tech display hover effects */
+  .tech-display {
+    box-shadow: 0 0 30px rgba(226, 176, 7, 0.2);
+    transition: all 0.5s ease;
+  }
+  
+  .tech-display:hover {
+    box-shadow: 0 0 50px rgba(226, 176, 7, 0.4);
+    transform: scale(1.05);
+  }
+</style>
+<style>
+  /* Zigzag Timeline Styles */
+  .timeline-item {
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-item:nth-child(odd) .service-card {
+      transform: translateX(20px);
+    }
+    .timeline-item:nth-child(even) .service-card {
+      transform: translateX(-20px);
+    }
+    .timeline-item:hover .service-card {
+      transform: translateX(0) translateY(-5px);
+    }
+  }
+
+  /* Service Card Hover Effects */
+  .service-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(4, 35, 84, 0.15);
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 767px) {
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      z-index: 1;
+    }
+    
+    .service-card {
+      margin-bottom: 30px;
+    }
+  }
+</style>
+
 </head>
 
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
@@ -311,269 +475,446 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden z-0">
-      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-secondary opacity-10"></div>
-      <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary opacity-10 blur-3xl"></div>
-      <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-accent opacity-10 blur-3xl"></div>
-      <div class="eagle absolute text-4xl top-1/3 left-0 animate-eagle-fly">🦅</div>
-    </div>
+<!-- Hero Section with Tech Video Background -->
+<section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-clouds-of-data-1727-large.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/20"></div>
+  </div>
 
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          <span class="gradient-text">Innovative Tech Solutions</span> <br>Powered by Excellence
+  <!-- Floating Tech Elements -->
+  <div class="absolute inset-0 overflow-hidden z-1">
+    <!-- Animated tech icons -->
+    <div class="absolute top-1/4 left-10 w-12 h-12 animate-float">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-full h-full">
+    </div>
+    <div class="absolute top-1/3 right-20 w-12 h-12 animate-float animation-delay-2000">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-full h-full">
+    </div>
+    <div class="absolute bottom-1/4 left-1/4 w-12 h-12 animate-float animation-delay-3000">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-full h-full">
+    </div>
+    <div class="absolute bottom-1/3 right-1/4 w-12 h-12 animate-float animation-delay-4000">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-full h-full">
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Left Column - Text Content -->
+      <div class="lg:w-1/2" data-aos="fade-right">
+        <div class="mb-6 inline-flex items-center px-4 py-2 rounded-full bg-white/90 shadow-md backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full mr-2 animate-pulse" style="background-color: var(--accent);"></span>
+          <span class="text-sm font-medium" style="color: var(--primary);">Pioneering Tech Since 2023</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <span class="gradient-text">Full-Stack Innovation</span> 
+          <span class="block" style="color: var(--primary);">With MERN & AI Expertise</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Eagle Tech Solution delivers cutting-edge software development, AI solutions, and cybersecurity services with
-          our signature eagle-dark blue precision and golden excellence.
+        
+        <p class="text-lg md:text-xl text-gray-800 mb-8 bg-white/80 p-4 rounded-lg backdrop-blur-sm">
+          Eagle Tech delivers cutting-edge solutions using MongoDB, Express, React, Node.js, and Machine Learning - the complete modern tech stack for digital transformation.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#services" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg">
-            Explore Services
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#services" class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center">
+            <span>Our Tech Stack</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
           </a>
-          <a href="#contacts"
-            class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-medium rounded-lg transition-colors shadow-lg border border-primary">
-            Contact Us
+          <a href="#contacts" class="px-8 py-3 bg-white/90 hover:bg-white text-primary font-medium rounded-lg transition-all shadow-lg border border-primary hover:border-primary/80 flex items-center justify-center backdrop-blur-sm">
+            <span>Start a Project</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
           </a>
+        </div>
+        
+        <!-- Tech Stack Badges -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-5 h-5 mr-2" alt="MongoDB">
+            <span class="text-xs font-medium" style="color: var(--primary);">MongoDB</span>
+          </div>
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="w-5 h-5 mr-2" alt="Express">
+            <span class="text-xs font-medium" style="color: var(--primary);">Express</span>
+          </div>
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-5 h-5 mr-2" alt="React">
+            <span class="text-xs font-medium" style="color: var(--primary);">React</span>
+          </div>
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-5 h-5 mr-2" alt="Node.js">
+            <span class="text-xs font-medium" style="color: var(--primary);">Node.js</span>
+          </div>
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-5 h-5 mr-2" alt="TensorFlow">
+            <span class="text-xs font-medium" style="color: var(--primary);">TensorFlow</span>
+          </div>
+          <div class="bg-white/90 px-3 py-1 rounded-full flex items-center shadow-sm backdrop-blur-sm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-5 h-5 mr-2" alt="Python">
+            <span class="text-xs font-medium" style="color: var(--primary);">Python</span>
+          </div>
         </div>
       </div>
-
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" data-aos="fade-up"
-        data-aos-delay="200">
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
-          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-cloud text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cloud Solutions</h3>
-          <p class="text-gray-600 text-sm">Scalable and secure cloud infrastructure</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
-          <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-robot text-2xl" style="color: var(--accent);"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">AI & Automation</h3>
-          <p class="text-gray-600 text-sm">Smart solutions for business growth</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-shield-alt text-2xl" style="color: var(--secondary);"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Cybersecurity</h3>
-          <p class="text-gray-600 text-sm">Protecting your digital assets</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all service-card">
-          <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-graduation-cap text-2xl" style="color: var(--accent);"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2" style="color: var(--primary);">Training</h3>
-          <p class="text-gray-600 text-sm">Skill development programs</p>
-        </div>
+      
+      <!-- Right Column - Interactive Tech Showcase -->
+  <!-- Revolutionary Code Visualization Concept -->
+<div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left">
+  <div class="relative h-full min-h-[400px]">
+    <!-- 3D Code Matrix Background -->
+    <div class="absolute inset-0 overflow-hidden rounded-2xl bg-gray-900/90 backdrop-blur-sm">
+      <div class="code-matrix absolute inset-0">
+        <!-- This will be populated by JavaScript with animated code elements -->
       </div>
     </div>
 
-    <!-- Animated floating elements -->
-    <div class="absolute bottom-10 left-10 w-8 h-8 rounded-full" style="background-color: var(--primary); opacity: 0.2;"
-      class="animate-float"></div>
-    <div class="absolute top-20 right-20 w-12 h-12 rounded-full" style="background-color: var(--accent); opacity: 0.2;"
-      class="animate-float animation-delay-2000"></div>
-    <div class="absolute top-1/3 right-1/4 w-10 h-10 rounded-full"
-      style="background-color: var(--secondary); opacity: 0.2;" class="animate-float animation-delay-3000"></div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-gray-50">
-    <div class="section-divider"></div>
-    <div class="container mx-auto px-4 pt-20">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Services</span></h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          Comprehensive technology solutions with the precision of our eagle-dark blue and the excellence of gold
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service Card 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Blue Purple Modern Animated Computer Science Presentation.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Development</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Custom Software Development</h3>
-            <p class="text-gray-600 mb-4">
-              Scalable applications built with modern technologies and agile methodologies to drive your business
-              forward.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+    <!-- Interactive Code Sphere -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64">
+      <div class="code-sphere relative w-full h-full">
+        <!-- Sphere surface with floating code snippets -->
+        <div class="absolute top-0 left-0 code-fragment" data-tech="react">
+          <div class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full">React</div>
         </div>
-
-        <!-- Service Card 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up" data-aos-delay="100">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/cybersecurity.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Security</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Cybersecurity Services</h3>
-            <p class="text-gray-600 mb-4">
-              Comprehensive security solutions including threat modeling, risk assessment, and secure development.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+        <div class="absolute top-1/4 right-0 code-fragment" data-tech="node">
+          <div class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded-full">Node.js</div>
         </div>
-
-        <!-- Service Card 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up" data-aos-delay="200">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Blue Illustrative Ai Event Mobile UI Prototype.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-accent text-primary text-xs font-semibold px-3 py-1 rounded-full">AI</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">AI & Automation</h3>
-            <p class="text-gray-600 mb-4">
-              Transform your business with custom AI models and robotic process automation.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+        <div class="absolute bottom-1/3 left-0 code-fragment" data-tech="mongodb">
+          <div class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">MongoDB</div>
         </div>
-
-        <!-- Service Card 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Blue Purple Modern Animated Computer Science4 Presentationpage4.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Training</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Technical Training</h3>
-            <p class="text-gray-600 mb-4">
-              Customized training in AI, cloud computing, data science, and cybersecurity.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+        <div class="absolute bottom-0 right-1/4 code-fragment" data-tech="tensorflow">
+          <div class="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded-full">TensorFlow</div>
         </div>
-
-        <!-- Service Card 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up" data-aos-delay="100">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/allinone.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Web</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">Enterprise Web Apps</h3>
-            <p class="text-gray-600 mb-4">
-              Full-stack development of scalable web platforms using modern technologies.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Service Card 6 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all service-card"
-          data-aos="fade-up" data-aos-delay="200">
-          <div class="relative h-48 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="images/Orange and Purple Modern Illustration Web Development Instagram Post.mp4"
-                type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Consulting</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--primary);">IT Consulting</h3>
-            <p class="text-gray-600 mb-4">
-              Strategic technology consulting to align IT with business goals.
-            </p>
-            <a href="#" class="inline-flex items-center font-medium transition-colors" style="color: var(--secondary);">
-              Learn more
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-12" data-aos="fade-up">
-        <a href="#contacts"
-          class="px-8 py-3 btn-primary text-white font-medium rounded-lg shadow-lg inline-flex items-center">
-          Get a Free Consultation
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
-        </a>
+        <!-- More fragments will be added by JS -->
       </div>
     </div>
-  </section>
+
+    <!-- Central Interactive Display -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+      <div class="tech-display w-32 h-32 bg-gray-800/80 rounded-full border-2 border-primary/30 flex items-center justify-center mx-auto mb-4">
+        <img id="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-16 h-16 transition-all duration-500" alt="Tech Logo">
+      </div>
+
+    </div>
+
+    <!-- Floating Connection Lines -->
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path id="connection-path" d="" stroke="rgba(226,176,7,0.3)" stroke-width="1" fill="none" stroke-dasharray="5,5"></path>
+    </svg>
+  </div>
+</div>
+    </div>
+    
+    <!-- Full Tech Stack Section -->
+    <div class="mt-16 pt-8 border-t border-gray-200/50">
+      <p class="text-center text-gray-700 mb-6 font-medium">Our Complete Technology Stack</p>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 max-w-4xl mx-auto">
+        <!-- Frontend -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-10 h-10 mx-auto mb-2" alt="React">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">React</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-10 h-10 mx-auto mb-2" alt="Next.js">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Next.js</h4>
+        </div>
+        
+        <!-- Backend -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-10 h-10 mx-auto mb-2" alt="Node.js">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Node.js</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="w-10 h-10 mx-auto mb-2" alt="Express">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Express</h4>
+        </div>
+        
+        <!-- Database -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-10 h-10 mx-auto mb-2" alt="MongoDB">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">MongoDB</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-10 h-10 mx-auto mb-2" alt="PostgreSQL">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">PostgreSQL</h4>
+        </div>
+        
+        <!-- AI/ML -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-10 h-10 mx-auto mb-2" alt="TensorFlow">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">TensorFlow</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="w-10 h-10 mx-auto mb-2" alt="PyTorch">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">PyTorch</h4>
+        </div>
+        
+        <!-- DevOps -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-10 h-10 mx-auto mb-2" alt="Docker">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Docker</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="w-10 h-10 mx-auto mb-2" alt="Kubernetes">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Kubernetes</h4>
+        </div>
+        
+        <!-- Tools -->
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-10 h-10 mx-auto mb-2" alt="Git">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">Git</h4>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm text-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="w-10 h-10 mx-auto mb-2" alt="VS Code">
+          <h4 class="text-xs font-medium" style="color: var(--primary);">VS Code</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Services Timeline Section -->
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Service Process</span></h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        A structured approach to delivering exceptional results
+      </p>
+    </div>
+
+    <!-- Vertical Zigzag Timeline -->
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Timeline Line -->
+      <div class="absolute left-1/2 h-full w-0.5 transform -translate-x-1/2 bg-gradient-to-b from-primary via-accent to-primary"></div>
+      
+      <!-- Timeline Items -->
+      <div class="space-y-0">
+        <!-- Service 1 -->
+        <div class="relative py-10" data-aos="fade-up">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Thumbnail -->
+            <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
+              <div class="service-thumbnail bg-white p-6 rounded-xl shadow-md border-l-4" style="border-color: var(--accent);">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background-color: var(--primary);">
+                    <span class="text-white font-bold">1</span>
+                  </div>
+                  <h3 class="text-xl font-bold" style="color: var(--primary);">Consultation & Planning</h3>
+                </div>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Requirement analysis</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Project scoping</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Roadmap creation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white z-10" style="background-color: var(--accent);"></div>
+            
+            <!-- Right Empty (for zigzag) -->
+            <div class="md:w-1/2 md:pl-16"></div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="relative py-10" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Empty (for zigzag) -->
+            <div class="md:w-1/2 md:pr-16"></div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white z-10" style="background-color: var(--accent);"></div>
+            
+            <!-- Right Thumbnail -->
+            <div class="md:w-1/2 md:pl-16">
+              <div class="service-thumbnail bg-white p-6 rounded-xl shadow-md border-l-4" style="border-color: var(--accent);">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background-color: var(--primary);">
+                    <span class="text-white font-bold">2</span>
+                  </div>
+                  <h3 class="text-xl font-bold" style="color: var(--primary);">UI/UX Design</h3>
+                </div>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Wireframing & prototyping</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>User experience design</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Brand integration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="relative py-10" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Thumbnail -->
+            <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
+              <div class="service-thumbnail bg-white p-6 rounded-xl shadow-md border-l-4" style="border-color: var(--accent);">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background-color: var(--primary);">
+                    <span class="text-white font-bold">3</span>
+                  </div>
+                  <h3 class="text-xl font-bold" style="color: var(--primary);">Development</h3>
+                </div>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Agile development process</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>MERN stack expertise</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>AI/ML integration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white z-10" style="background-color: var(--accent);"></div>
+            
+            <!-- Right Empty (for zigzag) -->
+            <div class="md:w-1/2 md:pl-16"></div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="relative py-10" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Empty (for zigzag) -->
+            <div class="md:w-1/2 md:pr-16"></div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white z-10" style="background-color: var(--accent);"></div>
+            
+            <!-- Right Thumbnail -->
+            <div class="md:w-1/2 md:pl-16">
+              <div class="service-thumbnail bg-white p-6 rounded-xl shadow-md border-l-4" style="border-color: var(--accent);">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background-color: var(--primary);">
+                    <span class="text-white font-bold">4</span>
+                  </div>
+                  <h3 class="text-xl font-bold" style="color: var(--primary);">Testing & QA</h3>
+                </div>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Automated testing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Security audits</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Performance optimization</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="relative py-10" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Thumbnail -->
+            <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
+              <div class="service-thumbnail bg-white p-6 rounded-xl shadow-md border-l-4" style="border-color: var(--accent);">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-4" style="background-color: var(--primary);">
+                    <span class="text-white font-bold">5</span>
+                  </div>
+                  <h3 class="text-xl font-bold" style="color: var(--primary);">Deployment & Support</h3>
+                </div>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>CI/CD pipeline setup</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Cloud deployment</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 mt-1 mr-2 flex-shrink-0" style="color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Ongoing maintenance</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white z-10" style="background-color: var(--accent);"></div>
+            
+            <!-- Right Empty (for zigzag) -->
+            <div class="md:w-1/2 md:pl-16"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Education & Training Section -->
   <section id="education" class="py-20 bg-white">
@@ -1718,6 +2059,116 @@
       lastScroll = currentScroll;
     });
   </script>
+  <script>
+  // Generate code matrix elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const matrix = document.querySelector('.code-matrix');
+    const techData = {
+      react: {
+        name: "React",
+        desc: "Building interactive UIs with component architecture",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      },
+      node: {
+        name: "Node.js",
+        desc: "JavaScript runtime for scalable server-side applications",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+      },
+      mongodb: {
+        name: "MongoDB",
+        desc: "NoSQL database for flexible, scalable data storage",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+      },
+      tensorflow: {
+        name: "TensorFlow",
+        desc: "Machine learning framework for AI applications",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+      },
+      python: {
+        name: "Python",
+        desc: "Versatile programming for AI, data science and automation",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+      },
+      git: {
+        name: "Git",
+        desc: "Distributed version control system",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+      }
+    };
+    
+    // Create code matrix
+    for (let i = 0; i < 100; i++) {
+      const el = document.createElement('span');
+      el.style.animationDelay = `${Math.random() * 4}s`;
+      el.style.gridColumn = Math.floor(Math.random() * 10) + 1;
+      el.style.gridRow = Math.floor(Math.random() * 10) + 1;
+      matrix.appendChild(el);
+    }
+    
+    // Add more tech fragments
+    const sphere = document.querySelector('.code-sphere');
+    Object.keys(techData).forEach(tech => {
+      if (!document.querySelector(`[data-tech="${tech}"]`)) {
+        const el = document.createElement('div');
+        el.className = 'absolute code-fragment';
+        el.dataset.tech = tech;
+        el.innerHTML = `<div class="text-xs bg-${tech === 'react' ? 'blue' : tech === 'node' ? 'green' : tech === 'mongodb' ? 'emerald' : tech === 'tensorflow' ? 'orange' : 'purple'}-500/20 text-${tech === 'react' ? 'blue' : tech === 'node' ? 'green' : tech === 'mongodb' ? 'emerald' : tech === 'tensorflow' ? 'orange' : 'purple'}-300 px-2 py-1 rounded-full">${techData[tech].name}</div>`;
+        
+        // Random positioning on sphere
+        el.style.top = `${Math.random() * 80 + 10}%`;
+        el.style.left = `${Math.random() * 80 + 10}%`;
+        el.style.transform = `translateZ(${Math.random() * 60 - 30}px)`;
+        
+        // Add hover interaction
+        el.addEventListener('click', () => {
+          document.getElementById('tech-logo').src = techData[tech].logo;
+          document.getElementById('tech-name').textContent = techData[tech].name;
+          document.getElementById('tech-desc').textContent = techData[tech].desc;
+          
+          // Animate connection path
+          const path = document.getElementById('connection-path');
+          const fragmentRect = el.getBoundingClientRect();
+          const displayRect = document.querySelector('.tech-display').getBoundingClientRect();
+          
+          const x1 = fragmentRect.left + fragmentRect.width/2;
+          const y1 = fragmentRect.top + fragmentRect.height/2;
+          const x2 = displayRect.left + displayRect.width/2;
+          const y2 = displayRect.top + displayRect.height/2;
+          
+          path.setAttribute('d', `M${x1},${y1} Q${(x1+x2)/2},${y1-50} ${x2},${y2}`);
+        });
+        
+        sphere.appendChild(el);
+      }
+    });
+    
+    // Make sphere interactive
+    let isDragging = false;
+    let startX, startY;
+    let startRotationY = 0;
+    let currentRotationY = 0;
+    
+    sphere.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startRotationY = currentRotationY;
+      sphere.style.animation = 'none';
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      currentRotationY = startRotationY + deltaX * 0.5;
+      sphere.style.transform = `rotateY(${currentRotationY}deg) rotateX(10deg)`;
+    });
+    
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      sphere.style.animation = 'sphere-rotate 30s infinite linear';
+    });
+  });
+</script>
 </body>
 
 </html>
